@@ -2,7 +2,11 @@
 
 Use the unity3d in order to build this project
 
-## TODO
+## Features
+
+TODO 🔴
+Doing 🟡
+Done 🟢
 
 | Description | sit |
 | -- | -- |
