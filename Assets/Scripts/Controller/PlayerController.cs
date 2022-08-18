@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
   public void Shoot()
   {
     if(bullets.Count<stats[(int)PowerIndexes.AMMO]){
-      Vector3 offset = new Vector3(0.5f, 0, 0);
+      Vector3 offset = new Vector3(1f, 0, 0);
       Vector3 pos = transform.position + offset;
       FBController bullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
       bullet.setPlayer(this);

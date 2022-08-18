@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
   {
     float v = joystick.Vertical;
     float h = joystick.Horizontal;
-    float dy = Mathf.Abs(v) < 0.5f ? (Mathf.Abs(h) < 0.5f ? -2f : 0) : (v > 0 ? 3f : -4f);
+    float dy = Mathf.Abs(v) < 0.1f ? (Mathf.Abs(h) < 0.1f ? -1f : 0) : (v > 0 ? 3f : -4f);
     //Vector3 direction = Vector3.forward * joystick.Vertical + Vector3.right * joystick.Horizontal;
     //float dy = Input.GetAxis("Vertical") == 0 ? -0.5f : (Input.GetAxis("Vertical") > 0 ? 1.5f : -2f);
 

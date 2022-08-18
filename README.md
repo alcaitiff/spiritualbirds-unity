@@ -11,10 +11,11 @@ Done 🟢
 | Description | sit |
 | -- | -- |
 | Useless TODO table | 🟢 |
-| Enemies death animation | 🟡 |
-| Pause button | 🔴 |
-| Pause function | 🔴 |
-| PowerUP Prefab | 🔴 |
+| Enemies death animation | 🟢 |
+| Pause button | 🟢 |
+| Pause function | 🟢 |
+| Exit/Back function | 🟢 |
+| PowerUP Prefab | 🟡 |
 | HP Prefab | 🔴 |
 | Enemies drop | 🔴 |
 | Hawk | 🔴 |
@@ -30,6 +31,6 @@ Done 🟢
 | Tutorial texts | 🔴 |
 | Fase 1 Logic | 🔴 |
 | Improve controls | 🔴 |
-| Better fire button | 🔴 |
+| Better fire button | 🟢 |
 | Fase 1 Boss | 🔴 |
 | Fase 2 | 🔴 |

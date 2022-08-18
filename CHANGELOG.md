@@ -1,4 +1,16 @@
-# 0.0.9
+# ChangeLog
+
+## 0.0.10
+
+| Type | Description |
+| -- | -- |
+| feat | Enemies death animation |
+| feat | Pause button |
+| feat | Pause function |
+| feat | Exit/Back function |
+| fix | Better fire button |
+<!-- CHANGELOG SPLIT MARKER -->
+## 0.0.9
 
 | Type | Description |
 | -- | -- |
