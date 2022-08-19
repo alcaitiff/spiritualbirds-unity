@@ -574,6 +574,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 185540835}
   joystick: {fileID: 1512146941}
+  player: {fileID: 185540836}
+  gm: {fileID: 0}
 --- !u!95 &185540835
 Animator:
   serializedVersion: 4
@@ -880,6 +882,7 @@ MonoBehaviour:
   score: {fileID: 700441443}
   powerWhell: {fileID: 1569192823}
   hp: {fileID: 2097395091}
+  pauseButton: {fileID: 1267180534}
 --- !u!1 &307478198
 GameObject:
   m_ObjectHideFlags: 0

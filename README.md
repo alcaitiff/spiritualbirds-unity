@@ -15,6 +15,10 @@ Done 🟢
 | Pause button | 🟢 |
 | Pause function | 🟢 |
 | Exit/Back function | 🟢 |
+| Add joystick support | 🟢 |
+| Add keyboard support | 🟢 |
+| Add virtual joystick support | 🟢 |
+| Better fire button | 🟢 |
 | PowerUP Prefab | 🟡 |
 | HP Prefab | 🔴 |
 | Enemies drop | 🔴 |
@@ -31,6 +35,6 @@ Done 🟢
 | Tutorial texts | 🔴 |
 | Fase 1 Logic | 🔴 |
 | Improve controls | 🔴 |
-| Better fire button | 🟢 |
 | Fase 1 Boss | 🔴 |
 | Fase 2 | 🔴 |
+

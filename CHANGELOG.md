@@ -9,6 +9,8 @@
 | feat | Pause function |
 | feat | Exit/Back function |
 | fix | Better fire button |
+| feat | Add joystick support |
+| feat | Add keyboard support |
 <!-- CHANGELOG SPLIT MARKER -->
 ## 0.0.9
 

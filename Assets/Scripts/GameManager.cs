@@ -20,6 +20,21 @@ public class GameManager : MonoBehaviour
     DontDestroyOnLoad(gameObject);
   }
 
+  public void MainMenu(){
+    if(Mathf.Approximately(Time.timeScale, 0.0f)){
+      UI.MainMenu();
+    }
+  }
+
+  public void StartGame(){
+    Time.timeScale = 1.0f;
+    SceneManager.LoadScene((int)SceneIndexes.FASE_1, LoadSceneMode.Single);
+  }
+
+  public void GamePause(){
+    UI.GamePause();
+  }
+
   public int powerInc(){
     return UI.powerWhell.Inc();
   }

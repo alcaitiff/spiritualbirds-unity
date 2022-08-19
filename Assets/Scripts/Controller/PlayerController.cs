@@ -35,13 +35,17 @@ public class PlayerController : MonoBehaviour
     gm.player=this;
   }
 
-  // Update is called once per frame
+  //Update is called once per frame
   void Update()
   {
     if (Input.GetKeyDown(KeyCode.Q))
     {
       AddPower(0);
     }
+  }
+
+  public int getSpeed(){
+    return stats[(int)PowerIndexes.SPEED];
   }
 
   public void Shoot()
