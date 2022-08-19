@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour
 {
   public static GameManager instance;
   public UIController UI;
+  
+  [SerializeField]
+  private GameObject prefabHeal;
+  [SerializeField]
+  private GameObject prefabPowerUp;
+
   public PlayerController player;
   private void Awake()
   {
@@ -55,4 +61,13 @@ public class GameManager : MonoBehaviour
       UI.hp.setValue(current,max);
     }
   }
+
+  public void spawnHeal(Vector3 position){
+    Instantiate(prefabHeal, position, Quaternion.identity);
+  }
+  
+  public void spawnPowerUp(Vector3 position){
+    Instantiate(prefabPowerUp, position, Quaternion.identity);
+  }
+
 }

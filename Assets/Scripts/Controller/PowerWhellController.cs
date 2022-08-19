@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PowerWhellController : MonoBehaviour
 {
-  public PowerUpController[] powerUps;
-  private PowerUpController active;
+  public PowerUpUIController[] powerUps;
+  private PowerUpUIController active;
   public int value = -1;
   // Start is called before the first frame update
   void Start()

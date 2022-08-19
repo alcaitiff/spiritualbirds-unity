@@ -16,8 +16,7 @@ public class PlayerController : MonoBehaviour
   [SerializeField]
   private FBController bulletPrefab;
   // Start is called before the first frame update
-  void Start()
-  {
+  void Start(){
     maxStats[(int)PowerIndexes.SPEED] = 10;
     maxStats[(int)PowerIndexes.AMMO] = 10;
     maxStats[(int)PowerIndexes.DMG] = 100;
@@ -25,7 +24,7 @@ public class PlayerController : MonoBehaviour
     maxStats[(int)PowerIndexes.SPREAD] = 10;
     maxStats[(int)PowerIndexes.OPTION] = 3;
 
-    stats[(int)PowerIndexes.SPEED] = 0;
+    stats[(int)PowerIndexes.SPEED] = 1;
     stats[(int)PowerIndexes.AMMO] = 1;
     stats[(int)PowerIndexes.DMG] = 1;
     stats[(int)PowerIndexes.HEALTH] = 3;
@@ -36,9 +35,8 @@ public class PlayerController : MonoBehaviour
   }
 
   //Update is called once per frame
-  void Update()
-  {
-    if (Input.GetKeyDown(KeyCode.Q))
+  void Update(){
+    if (Input.GetKeyDown(KeyCode.E))
     {
       AddPower(0);
     }
@@ -47,9 +45,10 @@ public class PlayerController : MonoBehaviour
   public int getSpeed(){
     return stats[(int)PowerIndexes.SPEED];
   }
-
-  public void Shoot()
-  {
+  public int getMaxHP(){
+    return stats[(int)PowerIndexes.HEALTH];
+  }
+  public void Shoot(){
     if(bullets.Count<stats[(int)PowerIndexes.AMMO]){
       Vector3 offset = new Vector3(1f, 0, 0);
       Vector3 pos = transform.position + offset;
@@ -63,8 +62,7 @@ public class PlayerController : MonoBehaviour
       bullets.Remove(bullet);
   }
 
-  public void AddPower(int times)
-  {
+  public void AddPower(int times = 0){
     int p = gm.powerInc();
     if (stats[p] >= maxStats[p] && times < 10)
     {
@@ -72,30 +70,38 @@ public class PlayerController : MonoBehaviour
     }
   }
 
-  public void PowerUp()
-  {
+  public void PowerUp(){
     int p = gm.powerUp();
     if (p >-1 && stats[p] < maxStats[p])
     {
       stats[p]++;
+      if((int)PowerIndexes.HEALTH==p){
+        changeCurrentHealth(0);
+      }
     }
   }
 
-  void OnCollisionEnter2D(Collision2D other) {
-    //Debug.Log(other.collider.tag);
+  public void Heal(){
+    if (currentHealth < this.getMaxHP()) {
+      changeCurrentHealth(1);
+    }
   }
 
   public void hit(int dmg){
     AudioSource.PlayClipAtPoint(cry, transform.position);
-    currentHealth -= dmg;
-    if(currentHealth<1){
-      AudioSource.PlayClipAtPoint(death, transform.position);
-    }
-    gm.setLife(currentHealth,stats[(int)PowerIndexes.HEALTH]);
+    changeCurrentHealth(-dmg);
   }
 
   public void addPoints(int p){
     score+=p;
     gm.setScore(score);
+  }
+
+  private void changeCurrentHealth(int value){
+    currentHealth += value;
+    if(currentHealth<1){
+      AudioSource.PlayClipAtPoint(death, transform.position);
+    }
+    gm.setLife(currentHealth,getMaxHP());
   }
 }

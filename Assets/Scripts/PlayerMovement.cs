@@ -73,13 +73,9 @@ public class PlayerMovement : MonoBehaviour
     float h = Mathf.Approximately(joystick.Horizontal, 0.0f) ? move.x:joystick.Horizontal;
     float dy = Mathf.Approximately(v, 0.0f) ? (Mathf.Approximately(h, 0.0f) ? -1f : 0) : v ;
     h=Mathf.Approximately(h, 0.0f)?0f:(h>0f?h+s:h-s);
-    
     //Vector3 direction = Vector3.forward * joystick.Vertical + Vector3.right * joystick.Horizontal;
     //float dy = Input.GetAxis("Vertical") == 0 ? -0.5f : (Input.GetAxis("Vertical") > 0 ? 1.5f : -2f);
-
     animator.SetInteger("Lift", (int)Mathf.Round(dy));
-
-
     Vector3 mov = new Vector3(h, dy, 0);
     Vector3 des = transform.position + mov * Time.deltaTime;
     float x = des.x > minX ? (des.x < maxX ? des.x : maxX) : minX;

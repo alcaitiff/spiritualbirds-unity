@@ -19,17 +19,18 @@ Done 🟢
 | Add keyboard support | 🟢 |
 | Add virtual joystick support | 🟢 |
 | Better fire button | 🟢 |
-| PowerUP Prefab | 🟡 |
-| HP Prefab | 🔴 |
-| Enemies drop | 🔴 |
+| PowerUP Prefab | 🟢 |
+| HP Prefab | 🟢 |
+| Enemies drop | 🟢 |
+| Ammunition UI | 🟡 |
 | Hawk | 🔴 |
 | BlueJay | 🔴 |
 | OrangeBird | 🔴 |
 | Woodpecker | 🔴 |
 | Crow | 🔴 |
+| Gameover scene | 🔴 |
 | Death Statistics | 🔴 |
 | Menu Scene | 🔴 |
-| Ammunition UI | 🔴 |
 | Fireball Spread | 🔴 |
 | Bird Helper | 🔴 |
 | Tutorial texts | 🔴 |

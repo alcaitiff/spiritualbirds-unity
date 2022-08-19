@@ -9,18 +9,20 @@ public class EnemyController : MonoBehaviour
   public int dmg = 1;
   public float velocity;
   private float rand;
+  private int healDropChance = 10;
+  private int powerUpDropChance = 50;
+  private GameManager gm;
   [SerializeField]
   public AudioClip audioHit;
   // Start is called before the first frame update
-  void Start()
-  {
+  void Start(){
       this.rand = Random.Range(-5f, 5f);
       this.velocity = Random.Range(1.3f, 1.8f);
+      gm = GameManager.instance;
   }
 
   // Update is called once per frame
-  void Update()
-  {
+  void Update(){
     if(!isDead()){
       Vector3 mov = new Vector3(-velocity, Mathf.Sin(Time.fixedTime+rand)*0.7f, 0);
       Vector3 des = transform.position + mov * Time.deltaTime;
@@ -40,6 +42,7 @@ public class EnemyController : MonoBehaviour
   }
 
   void death(){
+    calcDrops(transform.position);
     Animator animator = gameObject.GetComponent<Animator>();
     animator.SetInteger("Dead", 1);
     Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
@@ -62,5 +65,17 @@ public class EnemyController : MonoBehaviour
       }else{
           return 0;
       }
+  }
+
+  private void calcDrops(Vector3 position){
+    if(drop(powerUpDropChance)){
+      gm.spawnPowerUp(position);
+    }else if(drop(healDropChance)){
+      gm.spawnHeal(position);
+    }
+  }
+
+  private bool drop(int chance){
+    return Random.Range(0,100)<=chance;
   }
 }
