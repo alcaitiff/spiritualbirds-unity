@@ -37,4 +37,3 @@ Done 🟢
 | Improve controls | 🔴 |
 | Fase 1 Boss | 🔴 |
 | Fase 2 | 🔴 |
-
