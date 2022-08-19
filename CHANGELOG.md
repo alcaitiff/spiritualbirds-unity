@@ -11,6 +11,9 @@
 | fix | Better fire button |
 | feat | Add joystick support |
 | feat | Add keyboard support |
+| feat | PowerUP Prefab |
+| feat | HP Prefab |
+| feat | Enemies drop |
 <!-- CHANGELOG SPLIT MARKER -->
 ## 0.0.9
 
