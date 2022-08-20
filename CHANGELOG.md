@@ -6,7 +6,7 @@
 | -- | -- |
 | feat | Ammunition UI |
 | feat | Fireball Spread |
-| feat |  |
+| fix | More Resolutions |
 
 ## 0.0.10
 
