@@ -22,7 +22,9 @@ Done 🟢
 | PowerUP Prefab | 🟢 |
 | HP Prefab | 🟢 |
 | Enemies drop | 🟢 |
-| Ammunition UI | 🟡 |
+| Ammunition UI | 🟢 |
+| Fireball Spread | 🟢 |
+| Bird Helper | 🟡 |
 | Hawk | 🔴 |
 | BlueJay | 🔴 |
 | OrangeBird | 🔴 |
@@ -31,8 +33,6 @@ Done 🟢
 | Gameover scene | 🔴 |
 | Death Statistics | 🔴 |
 | Menu Scene | 🔴 |
-| Fireball Spread | 🔴 |
-| Bird Helper | 🔴 |
 | Tutorial texts | 🔴 |
 | Fase 1 Logic | 🔴 |
 | Improve controls | 🔴 |

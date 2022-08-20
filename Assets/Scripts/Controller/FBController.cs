@@ -6,6 +6,7 @@ public class FBController : MonoBehaviour
 {
   public int dmg = 1;
   private float velocity = 8f;
+  private float angle = 0f;
   private PlayerController player;
   [SerializeField]
   public AudioClip audioHit;
@@ -20,11 +21,16 @@ public class FBController : MonoBehaviour
     this.player = player;
     return this;
   }
+  
+  public FBController setAngle(float degrees){
+    this.angle = Mathf.PI*degrees/180;
+    return this;
+  }
 
   // Update is called once per frame
   void Update()
   {
-    Vector3 mov = new Vector3(velocity, 0, 0);
+    Vector3 mov = new Vector3(velocity*Mathf.Cos(angle), velocity*Mathf.Sin(angle), 0);
     Vector3 des = transform.position + mov * Time.deltaTime;
     transform.position = des;
     if(des.x>12){
@@ -32,12 +38,14 @@ public class FBController : MonoBehaviour
     }
   }
   void OnCollisionEnter2D(Collision2D other) {
-    if(other.collider.tag=="Enemy"){
-      AudioSource.PlayClipAtPoint(audioHit, transform.position);
+    if(other.collider && other.collider.tag=="Enemy"){
       EnemyController e = other.gameObject.GetComponent<EnemyController>();
-      int p = e.hit(dmg);
-      player.addPoints(p);
-      Destroy(gameObject);
+      if(!e.dead){
+        AudioSource.PlayClipAtPoint(audioHit, transform.position);
+        int p = e.hit(dmg);
+        player.addPoints(p);
+        Destroy(gameObject);
+      }
     };
   }
   private void OnDestroy() {

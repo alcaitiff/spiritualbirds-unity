@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     maxStats[(int)PowerIndexes.AMMO] = 10;
     maxStats[(int)PowerIndexes.DMG] = 100;
     maxStats[(int)PowerIndexes.HEALTH] = 100;
-    maxStats[(int)PowerIndexes.SPREAD] = 10;
+    maxStats[(int)PowerIndexes.SPREAD] = 11;
     maxStats[(int)PowerIndexes.OPTION] = 3;
 
     stats[(int)PowerIndexes.SPEED] = 1;
@@ -48,6 +48,12 @@ public class PlayerController : MonoBehaviour
   public int getMaxHP(){
     return stats[(int)PowerIndexes.HEALTH];
   }
+  public int getMaxBullets(){
+    return stats[(int)PowerIndexes.AMMO];
+  }
+  public int getSpread(){
+    return stats[(int)PowerIndexes.SPREAD];
+  }
   public void Shoot(){
     if(bullets.Count<stats[(int)PowerIndexes.AMMO]){
       Vector3 offset = new Vector3(1f, 0, 0);
@@ -55,9 +61,25 @@ public class PlayerController : MonoBehaviour
       FBController bullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
       bullet.setPlayer(this);
       bullets.Add(bullet);
+      if(getSpread()>1){
+        ShootExtra(getSpread()-1);
+      }
     }
   }
-
+  
+  public void ShootExtra(int num){
+      Vector3 offset = new Vector3(1f, 0, 0) + transform.position;
+      if(num>0){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setPlayer(this).transform.localScale*=0.5f;}
+      if(num>1){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.4f, 0), Quaternion.identity).setPlayer(this).transform.localScale*=0.5f;}
+      if(num>2){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setPlayer(this).setAngle(15f).transform.localScale*=0.4f;}
+      if(num>3){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setPlayer(this).setAngle(-15f).transform.localScale*=0.4f;}      
+      if(num>4){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setPlayer(this).setAngle(30f).transform.localScale*=0.4f;}
+      if(num>5){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setPlayer(this).setAngle(-30f).transform.localScale*=0.4f;}      
+      if(num>6){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setPlayer(this).setAngle(45f).transform.localScale*=0.4f;}
+      if(num>7){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setPlayer(this).setAngle(-45f).transform.localScale*=0.4f;}
+      if(num>8){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setPlayer(this).setAngle(60f).transform.localScale*=0.4f;}
+      if(num>9){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setPlayer(this).setAngle(-60f).transform.localScale*=0.4f;}
+  }
   public void removeBullet(FBController bullet){
       bullets.Remove(bullet);
   }
