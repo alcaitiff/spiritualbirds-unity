@@ -5,7 +5,7 @@
 | Type | Description |
 | -- | -- |
 | feat | Ammunition UI |
-| feat |  |
+| feat | Fireball Spread |
 | feat |  |
 
 ## 0.0.10
