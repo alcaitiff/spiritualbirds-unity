@@ -3033,7 +3033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: 52c3bd5c789e07fce8301cda288eee65, type: 3}
   active: 0
-  interval: 4
+  interval: 1
 --- !u!1 &1636888588
 GameObject:
   m_ObjectHideFlags: 0
@@ -3197,6 +3197,53 @@ MonoBehaviour:
   prefabBullet: {fileID: 4822140243565055692, guid: 410c2a6a2474146c9b9aa4761d05eb50, type: 3}
   gm: {fileID: 0}
   bullets: []
+--- !u!1 &1649107478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1649107479}
+  - component: {fileID: 1649107480}
+  m_Layer: 6
+  m_Name: WoodPeckerSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1649107479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649107478}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6858691, y: -0.002784878, z: -0.0602019}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1675015801}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1649107480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649107478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75bcb960da63ff2c8cc382a741bb6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3781145664442341507, guid: f593482f5021875c6b2b33ca33d56898, type: 3}
+  active: 0
+  interval: 2
 --- !u!1001 &1664217386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3298,6 +3345,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1636655335}
+  - {fileID: 1649107479}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3313,9 +3361,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ac5a6b93d43d19688f227d66345e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 0}
+  gm: {fileID: 623976054}
   UI: {fileID: 286119984}
   pidgeon: {fileID: 1636655336}
+  woodpecker: {fileID: 1649107480}
 --- !u!1001 &1716079117
 PrefabInstance:
   m_ObjectHideFlags: 0

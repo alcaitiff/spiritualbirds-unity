@@ -39,8 +39,8 @@ public class FBController : MonoBehaviour
   }
   void OnTriggerEnter2D(Collider2D other){
     if(other.tag=="Enemy"){
-      EnemyController e = other.gameObject.GetComponent<EnemyController>();
-      if(!e.dead){
+      Hitable e = other.gameObject.GetComponent<Hitable>();
+      if(!e.isDead()){
         AudioSource.PlayClipAtPoint(audioHit, transform.position);
         int p = e.hit(dmg);
         player.addPoints(p);

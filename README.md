@@ -23,12 +23,12 @@ Done 🟢
 | HP Prefab | 🟢 |
 | Enemies drop | 🟢 |
 | Ammunition UI | 🟢 |
-| Fireball Spread | 🟢 |
-| Bird Helper | 🟡 |
-| Hawk | 🔴 |
+| Fireball Spread |  |
+| Bird Helper | 🟢 |
+| Woodpecker | 🟢 |
+| Hawk | 🟡 |
 | BlueJay | 🔴 |
 | OrangeBird | 🔴 |
-| Woodpecker | 🔴 |
 | Crow | 🔴 |
 | Gameover scene | 🔴 |
 | Death Statistics | 🔴 |

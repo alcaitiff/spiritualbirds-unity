@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     public bool active = false;
 
     [SerializeField]
-    private float interval = 4f;
+    private float interval = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +29,14 @@ public class Spawner : MonoBehaviour
     private IEnumerator spawnEnemy(float seconds, GameObject enemy)
     {
         yield return new WaitForSeconds(Random.Range(seconds,seconds*2));
-        Instantiate(enemy, new Vector3(12f, Random.Range(-3.5f, 3f), 0), Quaternion.identity);
+        GameObject e = Instantiate(enemy, new Vector3(12f, Random.Range(-3.5f, 3f), 0), Quaternion.identity);
         if(this.active){
             StartCoroutine(spawnEnemy(seconds, enemy));
         }
+    }
+
+    public Spawner setInterval(float v){
+        interval=v;
+        return this;
     }
 }

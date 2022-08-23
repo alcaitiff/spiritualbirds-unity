@@ -8,6 +8,9 @@
 | feat | Fireball Spread |
 | fix | More Resolutions |
 | fix | Player as prefab |
+| fix | FB as trigger |
+| feat | Helper |
+| feat | Woodpecker |
 
 ## 0.0.10
 

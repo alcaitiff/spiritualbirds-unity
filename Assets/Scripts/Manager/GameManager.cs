@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
   [SerializeField]
   private PlayerController prefabPlayer;
 
+  public List<EnemyStats> stats = new List<EnemyStats>();
+
   public PlayerController player;
   private void Awake()
   {
@@ -26,6 +28,9 @@ public class GameManager : MonoBehaviour
     }
     instance = this;
     DontDestroyOnLoad(gameObject);
+    for(int i = 0;i<6;i++){
+      stats.Add(new EnemyStats(i));
+    }
   }
 
   public void MainMenu(){
@@ -36,6 +41,10 @@ public class GameManager : MonoBehaviour
 
   public void StartGame(){
     Time.timeScale = 1.0f;
+    for(int i = 0;i<6;i++){
+      stats[i].clear();
+    }
+
     SceneManager.LoadScene((int)SceneIndexes.FASE_1, LoadSceneMode.Single);
   }
 

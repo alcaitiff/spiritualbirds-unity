@@ -2,28 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController :  MonoBehaviour,Hitable
 {
-  public int currentHealth = 1;
-  public int points = 1;
-  public int dmg = 1;
-  public float velocity;
-  private float rand;
-  private int healDropChance = 10;
-  private int powerUpDropChance = 50;
-  public bool dead = false;
-  private GameManager gm;
+  protected int currentHealth = 1;
+  protected int points = 1;
+  protected int dmg = 1;
+  protected float velocity;
+  protected float rand;
+  protected int healDropChance = 10;
+  protected int powerUpDropChance = 50;
+  protected bool dead = false;
+  protected GameManager gm;
+  protected int index;
   [SerializeField]
   public AudioClip audioHit;
   // Start is called before the first frame update
   void Start(){
-      this.rand = Random.Range(-5f, 5f);
-      this.velocity = Random.Range(1.3f, 1.8f);
+      index = (int)EnemyIndexes.PIDGEON;
+      rand = Random.Range(-5f, 5f);
+      velocity = Random.Range(1.3f, 1.8f);
       gm = GameManager.instance;
   }
 
   // Update is called once per frame
-  void Update(){
+  virtual protected void Update(){
     if(dead){
       Vector3 mov = new Vector3(+2, -7, 0);
       Vector3 des = transform.position + mov * Time.deltaTime;
@@ -46,11 +48,15 @@ public class EnemyController : MonoBehaviour
     };
   }
 
+  public bool isDead(){
+    return this.dead;
+  }
+
   void death(){
     if(!dead){
       dead = true;
       calcDrops(transform.position);
-      gameObject.GetComponent<Animator>().SetInteger("Dead", 1);
+      gameObject.GetComponent<Animator>().SetBool("Dead", true);
       gameObject.GetComponent<Rigidbody2D>().Sleep();
       gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
     }
@@ -78,6 +84,14 @@ public class EnemyController : MonoBehaviour
     currentHealth+=value;
     if(currentHealth<1){
       death();
+    }
+  }
+
+  private void OnDestroy() {
+    if(dead){
+      gm.stats[index].killed++;
+    }else{
+      gm.stats[index].slipped++;
     }
   }
 }
