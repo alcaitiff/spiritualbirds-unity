@@ -23,7 +23,7 @@ Done 🟢
 | HP Prefab | 🟢 |
 | Enemies drop | 🟢 |
 | Ammunition UI | 🟢 |
-| Fireball Spread |  |
+| Fireball Spread | 🟢 |
 | Bird Helper | 🟢 |
 | Woodpecker | 🟢 |
 | Hawk | 🟡 |
