@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class PowerWhellController : MonoBehaviour
+public class PowerWheelController : MonoBehaviour
 {
   public PowerUpUIController[] powerUps;
   private PowerUpUIController active;

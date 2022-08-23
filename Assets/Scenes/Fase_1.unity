@@ -691,10 +691,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 700441443}
-  powerWhell: {fileID: 1569192823}
+  powerWhell: {fileID: 0}
   dynamicJoystick: {fileID: 1512146941}
   hp: {fileID: 2097395091}
   pauseButton: {fileID: 1267180534}
+  gm: {fileID: 0}
 --- !u!1 &307478198
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,9 +985,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 623976054}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: shoot
+      - m_Target: {fileID: 286119984}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: Shoot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1118,8 +1119,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 286119984}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: PowerUp
         m_Mode: 1
         m_Arguments:

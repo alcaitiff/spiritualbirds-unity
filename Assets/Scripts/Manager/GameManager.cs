@@ -61,13 +61,13 @@ public class GameManager : MonoBehaviour
   }
 
   public int powerInc(){
-    return UI.powerWhell.Inc();
+    return UI.powerWheel.Inc();
   }
   
   public int powerUp(){
-    return UI.powerWhell.PowerUP();
+    return UI.powerWheel.PowerUP();
   }  
-  public void shoot(){
+  public void Shoot(){
     player.Shoot();
   }
 

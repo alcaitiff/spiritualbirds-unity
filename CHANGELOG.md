@@ -1,5 +1,11 @@
 # ChangeLog
 
+## 0.0.12
+
+| Type | Description |
+| -- | -- |
+| fix | PowerWheel Button |
+
 ## 0.0.11
 
 | Type | Description |
