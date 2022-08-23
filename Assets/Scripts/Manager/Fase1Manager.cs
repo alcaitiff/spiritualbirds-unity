@@ -11,7 +11,9 @@ public class Fase1Manager : MonoBehaviour
     [SerializeField]
     private Spawner pidgeon;
     [SerializeField]
-    private Spawner woodpecker;
+    private Spawner woodpecker;    
+    [SerializeField]
+    private Spawner hawk;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +26,15 @@ public class Fase1Manager : MonoBehaviour
 
     void Update(){
         EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
-        if(!woodpecker.active && pidgeonStats.killed+pidgeonStats.slipped>5){
+        if(!woodpecker.active && pidgeonStats.killed+pidgeonStats.slipped>2){
             woodpecker.setInterval(6f);
             woodpecker.enable();
+        }
+        if(!hawk.active && pidgeonStats.killed+pidgeonStats.slipped>2){
+            pidgeon.setInterval(5f);
+            woodpecker.setInterval(7f);
+            hawk.setInterval(6f);
+            hawk.enable();
         }
     }
 

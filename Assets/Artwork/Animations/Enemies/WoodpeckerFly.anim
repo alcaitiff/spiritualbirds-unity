@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: woodpeckerFly
+  m_Name: WoodpeckerFly
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,27 +21,27 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -539159608, guid: fd2c336f1f0cdf66f8f733f891d3e9f5, type: 3}
-    - time: 0.083333336
+    - time: 0.055555556
       value: {fileID: 810502181, guid: fd2c336f1f0cdf66f8f733f891d3e9f5, type: 3}
-    - time: 0.16666667
+    - time: 0.11111111
       value: {fileID: -986769132, guid: fd2c336f1f0cdf66f8f733f891d3e9f5, type: 3}
-    - time: 0.25
+    - time: 0.16666667
       value: {fileID: 226513343, guid: fd2c336f1f0cdf66f8f733f891d3e9f5, type: 3}
-    - time: 0.33333334
+    - time: 0.22222222
       value: {fileID: 2128583629, guid: fd2c336f1f0cdf66f8f733f891d3e9f5, type: 3}
-    - time: 0.41666666
+    - time: 0.2777778
       value: {fileID: 1535643232, guid: fd2c336f1f0cdf66f8f733f891d3e9f5, type: 3}
-    - time: 0.5
+    - time: 0.33333334
       value: {fileID: 2021695545, guid: fd2c336f1f0cdf66f8f733f891d3e9f5, type: 3}
-    - time: 0.5833333
+    - time: 0.3888889
       value: {fileID: -1658169184, guid: fd2c336f1f0cdf66f8f733f891d3e9f5, type: 3}
-    - time: 0.6666667
+    - time: 0.44444445
       value: {fileID: 166447598, guid: fd2c336f1f0cdf66f8f733f891d3e9f5, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 18
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -71,7 +71,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.75
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
