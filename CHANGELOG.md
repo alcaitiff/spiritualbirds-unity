@@ -12,6 +12,7 @@
 | feat | Helper |
 | feat | Woodpecker |
 | feat | Hawk |
+| feat | BlueJay |
 
 ## 0.0.10
 

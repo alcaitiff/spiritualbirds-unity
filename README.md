@@ -27,8 +27,8 @@ Done 🟢
 | Bird Helper | 🟢 |
 | Woodpecker | 🟢 |
 | Hawk | 🟢 |
-| BlueJay | 🟡 |
-| OrangeBird | 🔴 |
+| BlueJay | 🟢 |
+| OrangeBird | 🟡 |
 | Crow | 🔴 |
 | Gameover scene | 🔴 |
 | Death Statistics | 🔴 |

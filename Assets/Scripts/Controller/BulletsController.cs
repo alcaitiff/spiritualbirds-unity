@@ -18,14 +18,16 @@ public class BulletsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int num = gm.player.getMaxBullets() - gm.player.bullets.Count;
-        if (num != lastBulletsValue) {
-            if (num > lastBulletsValue) {
-                addBullets(num - lastBulletsValue);
-            } else {
-                removeBullets(lastBulletsValue - num);
+        if(gm && gm.player){
+            int num = gm.player.getMaxBullets() - gm.player.bullets.Count;
+            if (num != lastBulletsValue) {
+                if (num > lastBulletsValue) {
+                    addBullets(num - lastBulletsValue);
+                } else {
+                    removeBullets(lastBulletsValue - num);
+                }
+                lastBulletsValue = num;
             }
-            lastBulletsValue = num;
         }
     }
     private void addBullets(int num){

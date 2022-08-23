@@ -13,14 +13,18 @@ public class Fase1Manager : MonoBehaviour
     [SerializeField]
     private Spawner woodpecker;    
     [SerializeField]
-    private Spawner hawk;
+    private Spawner hawk;    
+    [SerializeField]
+    private Spawner blueJay;
     // Start is called before the first frame update
     void Start()
     {
         gm = GameManager.instance;
         gm.UI=UI;
-        pidgeon.setInterval(3f);
+        pidgeon.setInterval(4f);
         pidgeon.enable();
+        blueJay.setInterval(2f);
+        blueJay.enable();
         
         gm.startPlayer(new Vector3(-5,3,0));
     }

@@ -66,6 +66,9 @@ public class GameManager : MonoBehaviour
   
   public int powerUp(){
     return UI.powerWhell.PowerUP();
+  }  
+  public void shoot(){
+    player.Shoot();
   }
 
   public void setScore(int value){
