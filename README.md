@@ -1,5 +1,7 @@
 # Spiritual Birds - Unity Version
 
+![Spiritual Birds - Unity Version](Assets/Artwork/Sprites/logo.png?raw=true "Spiritual Birds - Unity Version")
+
 Use the unity3d in order to build this project
 
 ## Features
@@ -42,3 +44,7 @@ Done 🟢
 | Hide fire button | 🔴 |
 | Change music volume  | 🔴 |
 | Change sounds volume  | 🔴 |
+
+## ChangeLog
+
+[Here](CHANGELOG.md)
