@@ -17,21 +17,10 @@ public class WoodpeckerController: EnemyController
       gm = GameManager.instance;
   }
 
-  // Update is called once per frame
-  override protected void Update(){
-    if(dead){
-      Vector3 mov = new Vector3(+2, -7, 0);
-      Vector3 des = transform.position + mov * Time.deltaTime;
-      transform.position = des;
-      transform.rotation= transform.rotation*Quaternion.AngleAxis(240*Time.deltaTime, Vector3.back);
-    }else{
+  override protected void moveUpdate(){
       Vector3 mov = new Vector3(-velocity, 0, 0);
       Vector3 des = transform.position + mov * Time.deltaTime;
       transform.position = des;
-    }
-    if(transform.position.x<-12 || transform.position.y<-4.5){
-          Destroy(gameObject);
-    }
   }
 
 }

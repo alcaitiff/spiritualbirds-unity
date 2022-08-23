@@ -24,21 +24,30 @@ public class EnemyController :  MonoBehaviour,Hitable
       gm = GameManager.instance;
   }
 
-  // Update is called once per frame
-  virtual protected void Update(){
-    if(dead){
+  protected void deadUpdate(){
       Vector3 mov = new Vector3(+2, -7, 0);
       Vector3 des = transform.position + mov * Time.deltaTime;
       transform.position = des;
       transform.rotation= transform.rotation*Quaternion.AngleAxis(240*Time.deltaTime, Vector3.back);
-    }else{
-      Vector3 mov = new Vector3(-velocity, Mathf.Sin(Time.fixedTime+rand)*0.7f, 0);
-      Vector3 des = transform.position + mov * Time.deltaTime;
-      transform.position = des;
-    }
+  }
+  protected void outOfBoundsUpdate(){
     if(transform.position.x<-12 || transform.position.y<-4.5){
           Destroy(gameObject);
     }
+  }
+  virtual protected void moveUpdate(){
+    Vector3 mov = new Vector3(-velocity, Mathf.Sin(Time.fixedTime+rand)*0.7f, 0);
+    Vector3 des = transform.position + mov * Time.deltaTime;
+    transform.position = des;
+  }
+  // Update is called once per frame
+  protected void Update(){
+    if(dead){
+      deadUpdate();
+    }else{
+      moveUpdate();
+    }
+    outOfBoundsUpdate();
   }
 
   void OnCollisionEnter2D(Collision2D other) {

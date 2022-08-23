@@ -1699,6 +1699,53 @@ Transform:
   m_Father: {fileID: 1675015801}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &912872079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 912872081}
+  - component: {fileID: 912872080}
+  m_Layer: 6
+  m_Name: OrangeBirdSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &912872080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912872079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75bcb960da63ff2c8cc382a741bb6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3781145664442341507, guid: 69cbfcab635621b4db4a39eebdde8f6d, type: 3}
+  active: 0
+  interval: 1
+--- !u!4 &912872081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912872079}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6858691, y: -0.002784878, z: -0.0602019}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1675015801}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &952116364 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1774608803507388447, guid: dd1077667100316289e6e21524614a15, type: 3}
@@ -1922,6 +1969,53 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8903632904033482852, guid: 06944e8a36b5e5fd39e652d6a588fb59, type: 3}
   m_PrefabInstance: {fileID: 8903632903776240767}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1097251134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1097251136}
+  - component: {fileID: 1097251135}
+  m_Layer: 6
+  m_Name: CrowSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1097251135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097251134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75bcb960da63ff2c8cc382a741bb6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3781145664442341507, guid: c517016bbd3f33863a7f8b054b6cd087, type: 3}
+  active: 0
+  interval: 2
+--- !u!4 &1097251136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097251134}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6858691, y: -0.002784878, z: -0.0602019}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1675015801}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1110281579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3395,6 +3489,8 @@ Transform:
   - {fileID: 1649107479}
   - {fileID: 904094931}
   - {fileID: 1961876740}
+  - {fileID: 912872081}
+  - {fileID: 1097251136}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3416,6 +3512,8 @@ MonoBehaviour:
   woodpecker: {fileID: 1649107480}
   hawk: {fileID: 904094930}
   blueJay: {fileID: 1961876741}
+  orangeBird: {fileID: 912872080}
+  crow: {fileID: 1097251135}
 --- !u!1001 &1716079117
 PrefabInstance:
   m_ObjectHideFlags: 0

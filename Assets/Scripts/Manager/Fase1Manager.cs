@@ -16,6 +16,10 @@ public class Fase1Manager : MonoBehaviour
     private Spawner hawk;    
     [SerializeField]
     private Spawner blueJay;
+    [SerializeField]
+    private Spawner orangeBird;    
+    [SerializeField]
+    private Spawner crow;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +27,8 @@ public class Fase1Manager : MonoBehaviour
         gm.UI=UI;
         pidgeon.setInterval(4f);
         pidgeon.enable();
-        blueJay.setInterval(2f);
-        blueJay.enable();
-        
+        crow.setInterval(4f);
+        crow.enable();
         gm.startPlayer(new Vector3(-5,3,0));
     }
 
@@ -41,6 +44,20 @@ public class Fase1Manager : MonoBehaviour
             woodpecker.setInterval(7f);
             hawk.setInterval(6f);
             hawk.enable();
+        }
+        if(!blueJay.active && pidgeonStats.killed+pidgeonStats.slipped>18){
+            pidgeon.setInterval(6f);
+            woodpecker.setInterval(8f);
+            hawk.setInterval(7f);
+            blueJay.setInterval(9f);
+            blueJay.enable();
+        }
+        if(!orangeBird.active && pidgeonStats.killed+pidgeonStats.slipped>24){
+            pidgeon.setInterval(6f);
+            woodpecker.setInterval(8f);
+            hawk.setInterval(7f);
+            orangeBird.setInterval(4f);
+            orangeBird.enable();     
         }
     }
 

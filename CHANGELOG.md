@@ -13,6 +13,8 @@
 | feat | Woodpecker |
 | feat | Hawk |
 | feat | BlueJay |
+| feat | OrangeBird |
+| feat | Crow |
 
 ## 0.0.10
 

@@ -28,13 +28,17 @@ Done 🟢
 | Woodpecker | 🟢 |
 | Hawk | 🟢 |
 | BlueJay | 🟢 |
-| OrangeBird | 🟡 |
-| Crow | 🔴 |
-| Gameover scene | 🔴 |
+| OrangeBird | 🟢 |
+| Crow | 🟢 |
+| Gameover scene | 🟡 |
 | Death Statistics | 🔴 |
 | Menu Scene | 🔴 |
 | Tutorial texts | 🔴 |
-| Fase 1 Logic | 🔴 |
+| Fase 1 Logic (Balance) | 🔴 |
 | Improve controls | 🔴 |
 | Fase 1 Boss | 🔴 |
 | Fase 2 | 🔴 |
+| Fase 3 | 🔴 |
+| Hide fire button | 🔴 |
+| Change music volume  | 🔴 |
+| Change sounds volume  | 🔴 |

@@ -10,7 +10,7 @@ public class HawkController: EnemyController
       index = (int)EnemyIndexes.HAWK;
       rand = Random.Range(-5f, 5f);
       velocity = Random.Range(2f, 3f);
-      currentHealth = 4;
+      currentHealth = 10;
       points = 6;
       dmg = 5;
       healDropChance = 15;
@@ -19,14 +19,8 @@ public class HawkController: EnemyController
       transform.rotation= transform.rotation*Quaternion.AngleAxis(45, Vector3.back);
   }
 
-  // Update is called once per frame
-  override protected void Update(){
-    if(dead){
-      Vector3 mov = new Vector3(+2, -7, 0);
-      Vector3 des = transform.position + mov * Time.deltaTime;
-      transform.position = des;
-      transform.rotation= transform.rotation*Quaternion.AngleAxis(240*Time.deltaTime, Vector3.back);
-    }else if(!diving && transform.position.y >4){
+  override protected void moveUpdate(){
+    if(!diving && transform.position.y >4){
       diving=true;
       gameObject.GetComponent<Animator>().SetBool("Diving", true);
       transform.rotation= transform.rotation*Quaternion.AngleAxis(70, Vector3.forward);
@@ -38,9 +32,6 @@ public class HawkController: EnemyController
       Vector3 mov = new Vector3(-velocity*3f, -velocity, 0);
       Vector3 des = transform.position + mov * Time.deltaTime;
       transform.position = des;
-    }
-    if(transform.position.x<-12 || transform.position.y<-4.5){
-          Destroy(gameObject);
     }
   }
 

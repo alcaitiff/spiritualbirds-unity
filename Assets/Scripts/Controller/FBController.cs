@@ -25,6 +25,11 @@ public class FBController : MonoBehaviour
   public FBController setAngle(float degrees){
     this.angle = Mathf.PI*degrees/180;
     return this;
+  }  
+  
+  public FBController setDMG(int dmg){
+    this.dmg = dmg;
+    return this;
   }
 
   // Update is called once per frame
