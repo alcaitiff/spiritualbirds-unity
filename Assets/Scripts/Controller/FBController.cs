@@ -12,7 +12,7 @@ public class FBController : MonoBehaviour
   public AudioClip audioHit;
   [SerializeField]
   public AudioClip audioShoot;
-  void Start()
+  public void playShoot()
   {
     AudioSource.PlayClipAtPoint(audioShoot, transform.position);
   }
@@ -33,12 +33,12 @@ public class FBController : MonoBehaviour
     Vector3 mov = new Vector3(velocity*Mathf.Cos(angle), velocity*Mathf.Sin(angle), 0);
     Vector3 des = transform.position + mov * Time.deltaTime;
     transform.position = des;
-    if(des.x>12){
+    if(des.x>12 || des.y>4.5 || des.y<-4.5){
         Destroy(gameObject);
     }
   }
-  void OnCollisionEnter2D(Collision2D other) {
-    if(other.collider && other.collider.tag=="Enemy"){
+  void OnTriggerEnter2D(Collider2D other){
+    if(other.tag=="Enemy"){
       EnemyController e = other.gameObject.GetComponent<EnemyController>();
       if(!e.dead){
         AudioSource.PlayClipAtPoint(audioHit, transform.position);

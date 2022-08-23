@@ -399,6 +399,7 @@ MonoBehaviour:
   UI: {fileID: 0}
   prefabHeal: {fileID: 4822140243565055692, guid: 94f806f0349500cd0baffa0c9f8c7f72, type: 3}
   prefabPowerUp: {fileID: 4822140243565055692, guid: d75c660c8e7436798a02a909e70fa555, type: 3}
+  prefabPlayer: {fileID: 2705026822796951424, guid: d558033cdd3f73e59b0cdef248417e2b, type: 3}
   player: {fileID: 0}
 --- !u!4 &343524504
 Transform:

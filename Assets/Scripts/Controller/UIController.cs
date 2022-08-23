@@ -6,6 +6,7 @@ public class UIController : MonoBehaviour
 {
     public GameObject score;
     public PowerWhellController powerWhell;
+    public DynamicJoystick dynamicJoystick;
     public ProgressBarController hp;
     public PauseButton pauseButton;
 

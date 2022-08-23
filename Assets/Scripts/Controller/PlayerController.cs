@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 
   public int currentHealth = 3;
   public ArrayList bullets = new ArrayList();
+  public List<HelperController> helpers = new List<HelperController>();
   public int score = 0;
   public AudioClip death;
   public AudioClip cry;
@@ -14,7 +15,9 @@ public class PlayerController : MonoBehaviour
   private int[] stats = new int[6];
   
   [SerializeField]
-  private FBController bulletPrefab;
+  private FBController bulletPrefab;  
+  [SerializeField]
+  private HelperController helperPrefab;
   // Start is called before the first frame update
   void Start(){
     maxStats[(int)PowerIndexes.SPEED] = 10;
@@ -54,19 +57,32 @@ public class PlayerController : MonoBehaviour
   public int getSpread(){
     return stats[(int)PowerIndexes.SPREAD];
   }
+  public void spawnHelper(){
+    if(helpers.Count<stats[(int)PowerIndexes.OPTION]){
+      Vector3 offset = new Vector3(-6f, -4f, 0f);
+      Vector3 pos = transform.position + offset;
+      HelperController helper = Instantiate(helperPrefab, pos, Quaternion.identity);
+      helper.target = helpers.Count == 0? transform:helpers[helpers.Count -1].transform;
+      helpers.Add(helper);
+    }
+  }
+
   public void Shoot(){
     if(bullets.Count<stats[(int)PowerIndexes.AMMO]){
+      foreach (HelperController helper in helpers){
+       helper.Shoot();
+      }
       Vector3 offset = new Vector3(1f, 0, 0);
       Vector3 pos = transform.position + offset;
       FBController bullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
       bullet.setPlayer(this);
       bullets.Add(bullet);
+      bullet.playShoot();
       if(getSpread()>1){
         ShootExtra(getSpread()-1);
       }
     }
   }
-  
   public void ShootExtra(int num){
       Vector3 offset = new Vector3(1f, 0, 0) + transform.position;
       if(num>0){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setPlayer(this).transform.localScale*=0.5f;}
@@ -99,6 +115,8 @@ public class PlayerController : MonoBehaviour
       stats[p]++;
       if((int)PowerIndexes.HEALTH==p){
         changeCurrentHealth(0);
+      }else if((int)PowerIndexes.OPTION==p){
+        spawnHelper();
       }
     }
   }

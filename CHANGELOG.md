@@ -7,6 +7,7 @@
 | feat | Ammunition UI |
 | feat | Fireball Spread |
 | fix | More Resolutions |
+| fix | Player as prefab |
 
 ## 0.0.10
 

@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
   private GameObject prefabHeal;
   [SerializeField]
   private GameObject prefabPowerUp;
+  [SerializeField]
+  private PlayerController prefabPlayer;
 
   public PlayerController player;
   private void Awake()
@@ -35,6 +37,14 @@ public class GameManager : MonoBehaviour
   public void StartGame(){
     Time.timeScale = 1.0f;
     SceneManager.LoadScene((int)SceneIndexes.FASE_1, LoadSceneMode.Single);
+  }
+
+  public PlayerController startPlayer(Vector3 position){
+    if(player == null){
+      // TODO:Verificar como fazer entre fases
+      PlayerController player = Instantiate(prefabPlayer, position, Quaternion.identity);
+    }
+    return player;
   }
 
   public void GamePause(){

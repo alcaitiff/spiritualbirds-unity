@@ -6,12 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
   // Start is called before the first frame update
 
-  public Animator animator;
-  public DynamicJoystick joystick;
-  public PlayerController player;
   public GameManager gm;
-  Vector2 move = Vector2.zero;
-  PlayerControls controls;
+  private Animator animator;
+  private DynamicJoystick joystick;
+  private PlayerController player;
+  private Vector2 move = Vector2.zero;
+  private PlayerControls controls;
   private float minX = -7.5f;
   private float maxX = 7.5f;
   private float minY = -4.5f;
@@ -36,10 +36,14 @@ public class PlayerMovement : MonoBehaviour
     controls.GamePlay.Pause.performed += ctx => GamePause();
     controls.GamePlay.PowerUp.performed += ctx => PowerUp();
     controls.GamePlay.Shoot.performed += ctx => Shoot();
+   
   }
 
   void Start(){
     gm = GameManager.instance;
+    animator = gameObject.GetComponent<Animator>();
+    player = gameObject.GetComponent<PlayerController>();
+    joystick = gm.UI.dynamicJoystick;
   }
 
   private void OnEnable() {
