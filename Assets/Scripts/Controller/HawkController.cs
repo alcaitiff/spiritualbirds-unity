@@ -9,7 +9,7 @@ public class HawkController: EnemyController
   void Start(){
       index = (int)EnemyIndexes.HAWK;
       rand = Random.Range(-5f, 5f);
-      velocity = Random.Range(1.5f, 2.5f);
+      velocity = Random.Range(2f, 3f);
       currentHealth = 4;
       points = 6;
       dmg = 5;
@@ -26,16 +26,16 @@ public class HawkController: EnemyController
       Vector3 des = transform.position + mov * Time.deltaTime;
       transform.position = des;
       transform.rotation= transform.rotation*Quaternion.AngleAxis(240*Time.deltaTime, Vector3.back);
-    }else if(!diving && transform.position.y >3.5){
+    }else if(!diving && transform.position.y >4){
       diving=true;
       gameObject.GetComponent<Animator>().SetBool("Diving", true);
-      transform.rotation= transform.rotation*Quaternion.AngleAxis(90, Vector3.forward);
+      transform.rotation= transform.rotation*Quaternion.AngleAxis(70, Vector3.forward);
     } else if(!diving){
       Vector3 mov = new Vector3(-velocity, +velocity, 0);
       Vector3 des = transform.position + mov * Time.deltaTime;
       transform.position = des;
     }else{
-      Vector3 mov = new Vector3(-velocity*1.5f, -velocity*1.5f, 0);
+      Vector3 mov = new Vector3(-velocity*3f, -velocity, 0);
       Vector3 des = transform.position + mov * Time.deltaTime;
       transform.position = des;
     }

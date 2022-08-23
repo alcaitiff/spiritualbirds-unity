@@ -11,6 +11,7 @@
 | fix | FB as trigger |
 | feat | Helper |
 | feat | Woodpecker |
+| feat | Hawk |
 
 ## 0.0.10
 

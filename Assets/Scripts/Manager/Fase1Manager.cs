@@ -19,18 +19,20 @@ public class Fase1Manager : MonoBehaviour
     {
         gm = GameManager.instance;
         gm.UI=UI;
-        pidgeon.setInterval(4f);
+        pidgeon.setInterval(3f);
         pidgeon.enable();
+        
         gm.startPlayer(new Vector3(-5,3,0));
     }
 
     void Update(){
         EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
-        if(!woodpecker.active && pidgeonStats.killed+pidgeonStats.slipped>2){
+        if(!woodpecker.active && pidgeonStats.killed+pidgeonStats.slipped>6){
+            pidgeon.setInterval(4f);
             woodpecker.setInterval(6f);
             woodpecker.enable();
         }
-        if(!hawk.active && pidgeonStats.killed+pidgeonStats.slipped>2){
+        if(!hawk.active && pidgeonStats.killed+pidgeonStats.slipped>12){
             pidgeon.setInterval(5f);
             woodpecker.setInterval(7f);
             hawk.setInterval(6f);

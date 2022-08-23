@@ -26,8 +26,8 @@ Done 🟢
 | Fireball Spread | 🟢 |
 | Bird Helper | 🟢 |
 | Woodpecker | 🟢 |
-| Hawk | 🟡 |
-| BlueJay | 🔴 |
+| Hawk | 🟢 |
+| BlueJay | 🟡 |
 | OrangeBird | 🔴 |
 | Crow | 🔴 |
 | Gameover scene | 🔴 |
