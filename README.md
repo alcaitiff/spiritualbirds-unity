@@ -10,42 +10,24 @@ TODO 🔴
 Doing 🟡
 Done 🟢
 
-| Description | sit |
-| -- | -- |
-| Useless TODO table | 🟢 |
-| Enemies death animation | 🟢 |
-| Pause button | 🟢 |
-| Pause function | 🟢 |
-| Exit/Back function | 🟢 |
-| Add joystick support | 🟢 |
-| Add keyboard support | 🟢 |
-| Add virtual joystick support | 🟢 |
-| Better fire button | 🟢 |
-| PowerUP Prefab | 🟢 |
-| HP Prefab | 🟢 |
-| Enemies drop | 🟢 |
-| Ammunition UI | 🟢 |
-| Fireball Spread | 🟢 |
-| Bird Helper | 🟢 |
-| Woodpecker | 🟢 |
-| Hawk | 🟢 |
-| BlueJay | 🟢 |
-| OrangeBird | 🟢 |
-| Crow | 🟢 |
-| Gameover scene | 🟢 |
-| Death Statistics | 🟢 |
-| Menu Scene | 🟢 |
-| Toogle Sounds | 🟢 |
-| Toogle Virtual Button | 🟢 |
-| Tutorial texts | 🟡 |
-| Fase 1 Logic (Balance) | 🔴 |
-| Improve controls | 🔴 |
-| Fase 1 Boss | 🔴 |
-| Fase 2 | 🔴 |
-| Fase 3 | 🔴 |
-| Hide fire button | 🔴 |
-| Change music volume  | 🔴 |
-| Change sounds volume  | 🔴 |
+| Description |  | Description |  |
+| -- | -- | -- | -- |
+| Useless TODO table | 🟢 | HP Prefab | 🟢 |
+| Enemies death animation | 🟢 | Enemies drop | 🟢 |
+| Pause button | 🟢 | Ammunition UI | 🟢 |
+| Pause function | 🟢 | Fireball Spread | 🟢 |
+| Exit/Back function | 🟢 | Bird Helper | 🟢 |
+| Add joystick support | 🟢 | Woodpecker | 🟢 |
+| Add keyboard support | 🟢 | Hawk | 🟢 |
+| Add virtual joystick support | 🟢 | BlueJay | 🟢 |
+| Better fire button | 🟢 | OrangeBird | 🟢 |
+| PowerUP Prefab | 🟢 | Crow | 🟢 |
+| Gameover scene | 🟢 | Death Statistics | 🟢 |
+| Menu Scene | 🟢 | Toogle Sounds | 🟢 |
+| Toogle Virtual Button | 🟢 | Tutorial texts | 🟡 |
+| Fase 1 Logic (Balance) | 🔴 | Improve controls | 🔴 |
+| Fase 1 Boss | 🔴 | Fase 2 | 🔴 |
+| Fase 3 | 🔴 |  |  |
 
 ## ChangeLog
 
