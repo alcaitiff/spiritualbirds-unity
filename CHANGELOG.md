@@ -8,6 +8,8 @@
 | feat | Gameover scene |
 | feat | Death Statistics |
 | feat | Menu Scene |
+| feat | Toogle Sounds |
+| feat | Toogle Virtual Button |
 ## 0.0.11
 
 | Type | Description |

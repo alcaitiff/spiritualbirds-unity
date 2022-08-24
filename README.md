@@ -35,6 +35,8 @@ Done 🟢
 | Gameover scene | 🟢 |
 | Death Statistics | 🟢 |
 | Menu Scene | 🟢 |
+| Toogle Sounds | 🟢 |
+| Toogle Virtual Button | 🟢 |
 | Tutorial texts | 🟡 |
 | Fase 1 Logic (Balance) | 🔴 |
 | Improve controls | 🔴 |
