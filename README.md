@@ -27,7 +27,7 @@ Done 🟢
 | Toogle Virtual Button | 🟢 | Tutorial texts | 🟡 |
 | Fase 1 Logic (Balance) | 🔴 | Improve controls | 🔴 |
 | Fase 1 Boss | 🔴 | Fase 2 | 🔴 |
-| Fase 3 | 🔴 |  |  |
+| Fase 3 | 🔴 | Save settings | 🔴 |
 
 ## ChangeLog
 
