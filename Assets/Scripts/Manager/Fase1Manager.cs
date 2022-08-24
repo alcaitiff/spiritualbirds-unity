@@ -52,26 +52,23 @@ public class Fase1Manager : MonoBehaviour
             pidgeon.setInterval(4f);
             pidgeon.enable();
             StartCoroutine(initialTutorial());
-        }
-        if(!woodpecker.active && pidgeonStats.killed+pidgeonStats.slipped>6){
+        }else if(!woodpecker.active && pidgeonStats.born>6){
             pidgeon.setInterval(4f);
             woodpecker.setInterval(6f);
             woodpecker.enable();
-        }
-        if(!hawk.active && pidgeonStats.killed+pidgeonStats.slipped>12){
+        }else if(!hawk.active && pidgeonStats.born>12){
             pidgeon.setInterval(5f);
             woodpecker.setInterval(7f);
             hawk.setInterval(6f);
             hawk.enable();
-        }
-        if(!blueJay.active && pidgeonStats.killed+pidgeonStats.slipped>18){
+            UI.setTutorial("Increase your life or you may die in one hit to strong enemies");   
+        }else if(!blueJay.active && pidgeonStats.born>18){
             pidgeon.setInterval(6f);
             woodpecker.setInterval(8f);
             hawk.setInterval(7f);
             blueJay.setInterval(9f);
             blueJay.enable();
-        }
-        if(!orangeBird.active && pidgeonStats.killed+pidgeonStats.slipped>24){
+        }else if(!orangeBird.active && pidgeonStats.born>24){
             pidgeon.setInterval(6f);
             woodpecker.setInterval(8f);
             hawk.setInterval(7f);
