@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-public class GameOverController : MonoBehaviour
+public class GameOverManager : MonoBehaviour
 {
+    public List<GameObject> objects = new List<GameObject>();
     public TextMeshProUGUI pidgeonScore;
     public TextMeshProUGUI woodpeeckerScore;
     public TextMeshProUGUI hawkScore;
@@ -23,6 +24,23 @@ public class GameOverController : MonoBehaviour
         blueJayScore.text=getScore((int)EnemyIndexes.BLUEJAY);
         orangeBirdScore.text=getScore((int)EnemyIndexes.ORANGE_BIRD);
         crowScore.text=getScore((int)EnemyIndexes.CROW);
+        disableObjects();
+        StartCoroutine(enableObjects());
+    }
+
+    private void disableObjects(){
+        foreach(GameObject g in objects){
+            g.SetActive(false);
+        }
+    }
+
+    private IEnumerator enableObjects(){
+        for(int i =0;i<objects.Count;i++){
+            if(i>5 || gm.stats[i].born>0){
+                yield return new WaitForSeconds(0.5f);
+                objects[i].SetActive(true);
+            }
+        }
     }
 
     private string getScore(int i){

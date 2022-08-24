@@ -11,6 +11,9 @@
 | feat | Toogle Sounds |
 | feat | Toogle Virtual Button |
 | feat | Tutorial texts |
+| fix | Icon |
+| fix | GameOver Objects |
+
 ## 0.0.11
 
 | Type | Description |
