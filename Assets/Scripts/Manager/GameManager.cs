@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
 
   public void setLife(int current,int max){
     if(current<1){
-      SceneManager.LoadScene((int)SceneIndexes.TITLE, LoadSceneMode.Single);
+      SceneManager.LoadScene((int)SceneIndexes.GAMEOVER, LoadSceneMode.Single);
     }else{
       UI.hp.setValue(current,max);
     }

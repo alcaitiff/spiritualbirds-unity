@@ -691,7 +691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 700441443}
-  powerWhell: {fileID: 0}
+  powerWheel: {fileID: 1569192823}
   dynamicJoystick: {fileID: 1512146941}
   hp: {fileID: 2097395091}
   pauseButton: {fileID: 1267180534}
