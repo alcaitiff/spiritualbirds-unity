@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
     public GameObject fireButton;
     public TextMeshProUGUI tutorial;
     private Coroutine routine;
+    private bool tutorialActive = true;
 
     // Start is called before the first frame update
     void Start(){
@@ -41,9 +42,14 @@ public class UIController : MonoBehaviour
         fireButton.SetActive(value);
     }
 
+    public void showTutorial(bool value){
+        tutorialActive=value;
+        tutorial.gameObject.SetActive(tutorialActive);    
+    }
+
     public void setTutorial(string text, float time=5f){
         tutorial.text=text;
-        tutorial.gameObject.SetActive(true);
+        tutorial.gameObject.SetActive(tutorialActive);
         if(routine!=null){
             StopCoroutine(routine);
         }

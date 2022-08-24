@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
   public static GameManager instance;
   public bool virtualButon = true;
   public bool sound = true;
+  public bool tutorial = true;
   public UIController UI;
   
   [SerializeField]
@@ -74,6 +75,14 @@ public class GameManager : MonoBehaviour
     sound=!sound;
     AudioListener.volume = sound?1:0;
     return sound;
+  }  
+  
+  public bool ToogleTutorial(){
+    tutorial=!tutorial;
+     if(UI){
+      UI.showTutorial(tutorial);
+    }
+    return tutorial;
   }
 
   public int powerInc(){

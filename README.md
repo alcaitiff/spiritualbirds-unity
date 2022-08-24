@@ -24,9 +24,9 @@ Done 🟢
 | PowerUP Prefab | 🟢 | Crow | 🟢 |
 | Gameover scene | 🟢 | Death Statistics | 🟢 |
 | Menu Scene | 🟢 | Toogle Sounds | 🟢 |
-| Toogle Virtual Button | 🟢 | Tutorial texts | 🟡 |
+| Toogle Virtual Button | 🟢 | Tutorial texts | 🟢 |
+| Fase 1 Boss | 🟡 | Fase 2 | 🔴 |
 | Fase 1 Logic (Balance) | 🔴 | Improve controls | 🔴 |
-| Fase 1 Boss | 🔴 | Fase 2 | 🔴 |
 | Fase 3 | 🔴 | Save settings | 🔴 |
 
 ## ChangeLog
