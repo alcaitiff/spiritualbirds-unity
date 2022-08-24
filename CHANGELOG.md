@@ -10,6 +10,7 @@
 | feat | Menu Scene |
 | feat | Toogle Sounds |
 | feat | Toogle Virtual Button |
+| feat | Tutorial texts |
 ## 0.0.11
 
 | Type | Description |
