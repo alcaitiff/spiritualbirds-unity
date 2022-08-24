@@ -34,8 +34,8 @@ Done 🟢
 | Crow | 🟢 |
 | Gameover scene | 🟢 |
 | Death Statistics | 🟢 |
-| Menu Scene | 🟡 |
-| Tutorial texts | 🔴 |
+| Menu Scene | 🟢 |
+| Tutorial texts | 🟡 |
 | Fase 1 Logic (Balance) | 🔴 |
 | Improve controls | 🔴 |
 | Fase 1 Boss | 🔴 |

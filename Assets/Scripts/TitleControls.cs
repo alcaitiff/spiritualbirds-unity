@@ -7,6 +7,7 @@ public class TitleControls : MonoBehaviour
   // Start is called before the first frame update
 
   public GameManager gm;
+  public GameObject menu;
   public int wait = 0;
   PlayerControls controls;
 
@@ -37,6 +38,16 @@ public class TitleControls : MonoBehaviour
 
   public void StartGame(){
     gm.StartGame();
+  }
+
+  public void ShowMenu(){
+    if(menu){
+      menu.SetActive(true);
+    }
+  }  
+  
+  public void HideMenu(){
+    menu.SetActive(false);
   }
 
 }

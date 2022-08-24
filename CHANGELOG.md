@@ -7,7 +7,7 @@
 | fix | PowerWheel Button |
 | feat | Gameover scene |
 | feat | Death Statistics |
-
+| feat | Menu Scene |
 ## 0.0.11
 
 | Type | Description |

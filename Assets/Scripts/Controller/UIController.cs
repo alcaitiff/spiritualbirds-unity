@@ -10,10 +10,12 @@ public class UIController : MonoBehaviour
     public ProgressBarController hp;
     public PauseButton pauseButton;
     public GameManager gm;
+    public GameObject fireButton;
   
     // Start is called before the first frame update
     void Start(){
         gm = GameManager.instance;
+        setVirtualButton(gm.virtualButon);
     }
     public void GamePause(){
         pauseButton.TogglePause();
@@ -31,4 +33,7 @@ public class UIController : MonoBehaviour
         gm.player.PowerUp();
     }    
     
+    public void setVirtualButton(bool value){
+        fireButton.SetActive(value);
+    }
 }

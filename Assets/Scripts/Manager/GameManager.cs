@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
   public static GameManager instance;
+  public bool virtualButon = true;
+  public bool sound = true;
   public UIController UI;
   
   [SerializeField]
@@ -58,6 +60,20 @@ public class GameManager : MonoBehaviour
 
   public void GamePause(){
     UI.GamePause();
+  }  
+  
+  public bool ToogleVirtualButton(){
+    virtualButon=!virtualButon;
+    if(UI){
+      UI.setVirtualButton(virtualButon);
+    }
+    return virtualButon;
+  }
+
+  public bool ToogleSound(){
+    sound=!sound;
+    AudioListener.volume = sound?1:0;
+    return sound;
   }
 
   public int powerInc(){
