@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CrowController: EnemyController
 {
-  // Start is called before the first frame update
-  void Start(){
+  override protected void Awake(){
       index = (int)EnemyIndexes.CROW;
       rand = Random.Range(-6f, 6f);
       velocity = Random.Range(2f, 3f);
@@ -14,7 +13,6 @@ public class CrowController: EnemyController
       dmg = 10;
       healDropChance = 25;
       powerUpDropChance = 25;
-      gm = GameManager.instance;
   }
 
   override protected void moveUpdate(){

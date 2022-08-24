@@ -7,7 +7,9 @@ public class TitleControls : MonoBehaviour
   // Start is called before the first frame update
 
   public GameManager gm;
+  public int wait = 0;
   PlayerControls controls;
+
 
   void Awake(){
     controls = new PlayerControls();
@@ -22,6 +24,10 @@ public class TitleControls : MonoBehaviour
   }
 
   private void OnEnable() {
+    StartCoroutine(enableControls());
+  }
+  private IEnumerator enableControls(){
+    yield return new WaitForSeconds(wait);
     controls.GamePlay.Enable();
   }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BlueJayController: EnemyController
 {
   // Start is called before the first frame update
-  void Start(){
+  override protected void Awake(){
       index = (int)EnemyIndexes.BLUEJAY;
       rand = Random.Range(-6f, 6f);
       velocity = Random.Range(2f, 3f);
@@ -14,7 +14,6 @@ public class BlueJayController: EnemyController
       dmg = 5;
       healDropChance = 25;
       powerUpDropChance = 25;
-      gm = GameManager.instance;
   }
 
   // Update is called once per frame

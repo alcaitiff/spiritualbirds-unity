@@ -32,9 +32,9 @@ Done 🟢
 | BlueJay | 🟢 |
 | OrangeBird | 🟢 |
 | Crow | 🟢 |
-| Gameover scene | 🟡 |
-| Death Statistics | 🔴 |
-| Menu Scene | 🔴 |
+| Gameover scene | 🟢 |
+| Death Statistics | 🟢 |
+| Menu Scene | 🟡 |
 | Tutorial texts | 🔴 |
 | Fase 1 Logic (Balance) | 🔴 |
 | Improve controls | 🔴 |

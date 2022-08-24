@@ -5,8 +5,8 @@ using UnityEngine;
 public class HawkController: EnemyController
 {
   private bool diving = false;
-  // Start is called before the first frame update
-  void Start(){
+
+  override protected void Awake(){
       index = (int)EnemyIndexes.HAWK;
       rand = Random.Range(-5f, 5f);
       velocity = Random.Range(2f, 3f);
@@ -15,7 +15,9 @@ public class HawkController: EnemyController
       dmg = 5;
       healDropChance = 15;
       powerUpDropChance = 15;
-      gm = GameManager.instance;
+  }
+  protected override void Start(){
+      base.Start();
       transform.rotation= transform.rotation*Quaternion.AngleAxis(45, Vector3.back);
   }
 

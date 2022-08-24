@@ -16,12 +16,16 @@ public class EnemyController :  MonoBehaviour,Hitable
   protected int index;
   [SerializeField]
   public AudioClip audioHit;
-  // Start is called before the first frame update
-  void Start(){
+
+  protected virtual void Awake() {
       index = (int)EnemyIndexes.PIDGEON;
       rand = Random.Range(-5f, 5f);
-      velocity = Random.Range(1.3f, 1.8f);
+      velocity = Random.Range(1.3f, 1.8f); 
+  }
+   
+  protected virtual void Start(){
       gm = GameManager.instance;
+      gm.stats[index].born++;
   }
 
   protected void deadUpdate(){

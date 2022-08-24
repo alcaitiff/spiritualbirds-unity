@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class OrangeBirdController: EnemyController
 {
-  // Start is called before the first frame update
-  void Start(){
+  override protected void Awake(){
       index = (int)EnemyIndexes.ORANGE_BIRD;
       rand = Random.Range(-4f, 4f);
       velocity = Random.Range(2f, 3f);
@@ -14,7 +13,6 @@ public class OrangeBirdController: EnemyController
       dmg = 15;
       healDropChance = 25;
       powerUpDropChance = 75;
-      gm = GameManager.instance;
   }
 
   override protected void moveUpdate(){

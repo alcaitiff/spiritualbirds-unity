@@ -1059,6 +1059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  wait: 3
 --- !u!1 &286119978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,8 +1072,9 @@ GameObject:
   - component: {fileID: 286119981}
   - component: {fileID: 286119980}
   - component: {fileID: 286119979}
+  - component: {fileID: 286119983}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Statistics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1172,6 +1174,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &286119983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286119978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e982e9bc09ab8da68b5d485f4be33f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pidgeonScore: {fileID: 1140769444}
+  woodpeeckerScore: {fileID: 231165784}
+  hawkScore: {fileID: 1140703187}
+  blueJayScore: {fileID: 1279308334}
+  orangeBirdScore: {fileID: 828782334}
+  crowScore: {fileID: 563777655}
+  score: {fileID: 940481061}
+  gm: {fileID: 0}
 --- !u!1 &307478198
 GameObject:
   m_ObjectHideFlags: 0

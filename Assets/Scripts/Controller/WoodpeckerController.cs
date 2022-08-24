@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class WoodpeckerController: EnemyController
 {
-  // Start is called before the first frame update
-  void Start(){
+  override protected void Awake(){
       index = (int)EnemyIndexes.WOODPECKER;
       rand = Random.Range(-5f, 5f);
       velocity = Random.Range(1.5f, 2.5f);
@@ -14,7 +13,6 @@ public class WoodpeckerController: EnemyController
       dmg = 2;
       healDropChance = 15;
       powerUpDropChance = 30;
-      gm = GameManager.instance;
   }
 
   override protected void moveUpdate(){
