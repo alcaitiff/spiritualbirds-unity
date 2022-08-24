@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class UIController : MonoBehaviour
 {
     public GameObject score;
@@ -11,12 +12,15 @@ public class UIController : MonoBehaviour
     public PauseButton pauseButton;
     public GameManager gm;
     public GameObject fireButton;
-  
+    public TextMeshProUGUI tutorial;
+    private Coroutine routine;
+
     // Start is called before the first frame update
     void Start(){
         gm = GameManager.instance;
         setVirtualButton(gm.virtualButon);
     }
+
     public void GamePause(){
         pauseButton.TogglePause();
     }
@@ -35,5 +39,20 @@ public class UIController : MonoBehaviour
     
     public void setVirtualButton(bool value){
         fireButton.SetActive(value);
+    }
+
+    public void setTutorial(string text, float time=5f){
+        tutorial.text=text;
+        tutorial.gameObject.SetActive(true);
+        if(routine!=null){
+            StopCoroutine(routine);
+        }
+        routine = StartCoroutine(hideTutorial(time));
+    }
+
+    private IEnumerator hideTutorial(float time){
+        yield return new WaitForSeconds(time);
+        tutorial.text="";
+        tutorial.gameObject.SetActive(false);
     }
 }

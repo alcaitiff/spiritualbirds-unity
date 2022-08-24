@@ -24,15 +24,35 @@ public class Fase1Manager : MonoBehaviour
     {
         gm = GameManager.instance;
         gm.UI=UI;
-        pidgeon.setInterval(4f);
-        pidgeon.enable();
-        crow.setInterval(4f);
-        crow.enable();
         gm.startPlayer(new Vector3(-5,3,0));
+    }
+
+    private IEnumerator initialTutorial(){
+        yield return new WaitForSeconds(5.5f);
+        UI.setTutorial("Use your finger on the left side to move \n\nArrow keys an joysticks are supported too");
+        yield return new WaitForSeconds(5.5f);
+        UI.setTutorial("Don't let the evil birds to touch you");
+        yield return new WaitForSeconds(5.5f);
+        UI.setTutorial("Use the button to fire\n\nOn keyboards use 'Q'");
+        yield return new WaitForSeconds(5.5f);
+        UI.setTutorial("Get the spirit fires to powerup");
+        yield return new WaitForSeconds(5.5f);
+        UI.setTutorial("Touch the powerwheel to use it\n\nOn keyboards use 'W'");
+        yield return new WaitForSeconds(5.5f);
+        UI.setTutorial("The powerups available are:\n\nspeed, ammunition, max HP, spread, damage and helpers");
+        yield return new WaitForSeconds(5.5f);
+        UI.setTutorial("Some birds need more than one shoot to be defeated");        
+        yield return new WaitForSeconds(5.5f);
+        UI.setTutorial("Good luck!");
     }
 
     void Update(){
         EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
+        if(!pidgeon.active && pidgeonStats.born==0){
+            pidgeon.setInterval(4f);
+            pidgeon.enable();
+            StartCoroutine(initialTutorial());
+        }
         if(!woodpecker.active && pidgeonStats.killed+pidgeonStats.slipped>6){
             pidgeon.setInterval(4f);
             woodpecker.setInterval(6f);
@@ -58,6 +78,8 @@ public class Fase1Manager : MonoBehaviour
             orangeBird.setInterval(4f);
             orangeBird.enable();     
         }
+        //crow.setInterval(4f);
+        //crow.enable();
     }
 
 
