@@ -8,10 +8,10 @@ public class WoodpeckerController: EnemyController
       index = (int)EnemyIndexes.WOODPECKER;
       rand = Random.Range(-5f, 5f);
       velocity = Random.Range(1.5f, 2.5f);
-      currentHealth = 2;
+      currentHealth = 3;
       points = 4;
       dmg = 2;
-      healDropChance = 15;
+      healDropChance = 35;
       powerUpDropChance = 30;
   }
 

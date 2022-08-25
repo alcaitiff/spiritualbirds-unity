@@ -26,9 +26,15 @@ Done 🟢
 | Menu Scene | 🟢 | Toogle Sounds | 🟢 |
 | Toogle Virtual Button | 🟢 | Tutorial texts | 🟢 |
 | Fase 1 Boss | 🟡 | Fase 2 | 🔴 |
-| Fase 1 Logic (Balance) | 🔴 | Enemy shoots | 🔴 |
+| Fase 1 Logic (Balance) | 🟡 | Enemy shoots | 🟡 |
 | Improve sounds | 🔴 | Improve controls | 🔴 |
 | Fase 3 | 🔴 | Save settings | 🔴 |
+| Super habilities | 🔴 | Super habilities menu | 🔴 |
+| Shield - recharge auto | 🔴 | Orbital - always around | 🔴 |
+| Pulse - shoot 24 each 5 seconds | 🔴 | Life Regen - 1hp each 5 seconds | 🔴 |
+| Star - change your limit to 24 | 🔴 | Pierce - don't disappear after hit | 🔴 |
+| Bounce - after hit bullet change trajectory | 🔴 | Auto Shoot - auto shoot each 1s | 🔴 |
+| Bosses on gameover screen | 🔴 | Super on gameover screen | 🔴 |
 
 ## ChangeLog
 

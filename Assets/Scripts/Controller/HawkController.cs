@@ -10,13 +10,13 @@ public class HawkController: EnemyController
       index = (int)EnemyIndexes.HAWK;
       rand = Random.Range(-5f, 5f);
       velocity = Random.Range(2f, 3f);
-      currentHealth = 10;
+      currentHealth = 8;
       points = 6;
       dmg = 5;
       healDropChance = 15;
-      powerUpDropChance = 15;
+      powerUpDropChance = 95;
   }
-  protected override void Start(){
+  override protected void Start(){
       base.Start();
       transform.rotation= transform.rotation*Quaternion.AngleAxis(45, Vector3.back);
   }

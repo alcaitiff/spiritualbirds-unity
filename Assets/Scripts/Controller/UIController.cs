@@ -23,6 +23,7 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start(){
         gm = GameManager.instance;
+        showTutorial(gm.tutorial);
         setVirtualButton(gm.virtualButon);
     }
 
@@ -51,7 +52,7 @@ public class UIController : MonoBehaviour
         tutorial.gameObject.SetActive(tutorialActive);    
     }
 
-    public void setTutorial(string text, float time=5f){
+    public void setTutorial(string text, float time=6f){
         tutorial.text=text;
         tutorial.gameObject.SetActive(tutorialActive);
         if(routine!=null){
@@ -71,9 +72,16 @@ public class UIController : MonoBehaviour
                         newSound: bossMusic,
                         finalVolume: volume,
                         fadeTime: 3f));
+        StartCoroutine(activateBossBattle());
+    }
+    private IEnumerator activateBossBattle(){
+        yield return new WaitForSeconds(3f);
         foreach(BackgroundTimedScroller background in backgrounds){
+            yield return new WaitForSeconds(0.2f);
             background.stop=true;
         }
+        yield return new WaitForSeconds(3f);
         Boss.gameObject.SetActive(true);
     }
+
 }

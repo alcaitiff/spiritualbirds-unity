@@ -9,5 +9,8 @@ public enum EnemyIndexes
   HAWK = 2,
   BLUEJAY = 3,
   ORANGE_BIRD = 4,
-  CROW = 5
+  CROW = 5,
+  DEVILEON = 6,
+  BOSS2 = 7,
+  BOSS3 = 8
 }

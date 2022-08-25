@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,10 +19,9 @@ public class GameManager : MonoBehaviour
   private GameObject prefabPowerUp;
   [SerializeField]
   private PlayerController prefabPlayer;
-
   public List<EnemyStats> stats = new List<EnemyStats>();
-
   public PlayerController player;
+  private int numEnemies;
   private void Awake()
   {
     if (GameManager.instance != null)
@@ -31,7 +31,8 @@ public class GameManager : MonoBehaviour
     }
     instance = this;
     DontDestroyOnLoad(gameObject);
-    for(int i = 0;i<6;i++){
+    numEnemies = Enum.GetNames(typeof(EnemyIndexes)).Length;
+    for(int i = 0;i<numEnemies;i++){
       stats.Add(new EnemyStats(i));
     }
   }
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
 
   public void StartGame(){
     Time.timeScale = 1.0f;
-    for(int i = 0;i<6;i++){
+    for(int i = 0;i<numEnemies;i++){
       stats[i].clear();
     }
 

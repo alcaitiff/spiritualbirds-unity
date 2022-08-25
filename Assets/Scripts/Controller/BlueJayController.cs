@@ -12,7 +12,7 @@ public class BlueJayController: EnemyController
       currentHealth = 8;
       points = 6;
       dmg = 5;
-      healDropChance = 25;
+      healDropChance = 65;
       powerUpDropChance = 25;
   }
 

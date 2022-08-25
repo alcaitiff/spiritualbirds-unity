@@ -29,27 +29,21 @@ public class Fase1Manager : MonoBehaviour
     }
 
     private IEnumerator initialTutorial(){
-        yield return new WaitForSeconds(5.5f);
-        UI.setTutorial("Use your finger on the left side to move \n\nArrow keys an joysticks are supported too");
-        yield return new WaitForSeconds(5.5f);
-        UI.setTutorial("Don't let the evil birds to touch you");
-        yield return new WaitForSeconds(5.5f);
-        UI.setTutorial("Use the button to fire\n\nOn keyboards use 'Q'");
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(8f);
+        UI.setTutorial("Use your finger on the left side to move \nArrow keys and joysticks are supported too");
+        yield return new WaitForSeconds(8f);
+        UI.setTutorial("Use the button to shoot\nOn keyboards use 'Q'");
+        yield return new WaitForSeconds(8f);
         UI.setTutorial("Get the spirit fires to powerup");
-        yield return new WaitForSeconds(5.5f);
-        UI.setTutorial("Touch the powerwheel to use it\n\nOn keyboards use 'W'");
-        yield return new WaitForSeconds(5.5f);
-        UI.setTutorial("The powerups available are:\n\nspeed, ammunition, max HP, spread, damage and helpers");
-        yield return new WaitForSeconds(5.5f);
-        UI.setTutorial("Some birds need more than one shoot to be defeated");        
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(8f);
+        UI.setTutorial("Touch the powerwheel to consume it\nOn keyboards use 'W'");
+        yield return new WaitForSeconds(8f);
         UI.setTutorial("Good luck!");
     }
 
     void Update(){
         EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
-        if(pidgeonStats.born<3){
+        if(pidgeonStats.born<6){
             enableEnemies();        
         }else if(!boss){
             enableBoss();
@@ -57,7 +51,7 @@ public class Fase1Manager : MonoBehaviour
     }
     private void enableBoss(){
         boss=true;
-        disableEnemies();
+        StartCoroutine(disableEnemies());
         UI.setUpBoss();
     }
     private void enableEnemies(){
@@ -66,30 +60,33 @@ public class Fase1Manager : MonoBehaviour
             pidgeon.setInterval(4f);
             pidgeon.enable();
             StartCoroutine(initialTutorial());
-        }else if(!woodpecker.active && pidgeonStats.born>6){
+        }else if(!woodpecker.active && pidgeonStats.born>6 && pidgeonStats.born<12){
+            pidgeon.setInterval(2f);
+        }else if(!woodpecker.active && pidgeonStats.born>12){
             pidgeon.setInterval(4f);
             woodpecker.setInterval(6f);
             woodpecker.enable();
-        }else if(!hawk.active && pidgeonStats.born>12){
+            UI.setTutorial("Some birds need more than one shoot to be defeated");     
+        }else if(!hawk.active && pidgeonStats.born>18){
             pidgeon.setInterval(5f);
             woodpecker.setInterval(7f);
             hawk.setInterval(6f);
             hawk.enable();
             UI.setTutorial("Increase your life or you may die in one hit to strong enemies");   
-        }else if(!blueJay.active && pidgeonStats.born>18){
+        }else if(!blueJay.active && pidgeonStats.born>24){
             pidgeon.setInterval(6f);
             woodpecker.setInterval(8f);
             hawk.setInterval(7f);
             blueJay.setInterval(9f);
             blueJay.enable();
-        }else if(!orangeBird.active && pidgeonStats.born>24){
+        }else if(!orangeBird.active && pidgeonStats.born>30){
             pidgeon.setInterval(6f);
             woodpecker.setInterval(8f);
             hawk.setInterval(7f);
             blueJay.setInterval(10f);
             orangeBird.setInterval(4f);
             orangeBird.enable();     
-        }else if(!crow.active && pidgeonStats.born>30){
+        }else if(!crow.active && pidgeonStats.born>40){
             pidgeon.setInterval(7f);
             woodpecker.setInterval(9f);
             hawk.setInterval(8f);
@@ -99,7 +96,8 @@ public class Fase1Manager : MonoBehaviour
             crow.enable();
         }
     }
-    private void disableEnemies(){
+    private IEnumerator disableEnemies(float time = 5f){
+        yield return new WaitForSeconds(time);
         pidgeon.disable();
         woodpecker.disable();
         hawk.disable();

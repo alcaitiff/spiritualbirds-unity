@@ -8,7 +8,7 @@ public class CrowController: EnemyController
       index = (int)EnemyIndexes.CROW;
       rand = Random.Range(-6f, 6f);
       velocity = Random.Range(2f, 3f);
-      currentHealth = 50;
+      currentHealth = 20;
       points = 10;
       dmg = 10;
       healDropChance = 25;
