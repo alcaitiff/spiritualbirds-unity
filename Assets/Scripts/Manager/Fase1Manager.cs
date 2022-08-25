@@ -43,16 +43,19 @@ public class Fase1Manager : MonoBehaviour
 
     void Update(){
         EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
-        if(pidgeonStats.born<6){
+        EnemyStats bossStats = gm.stats[(int)EnemyIndexes.DEVILEON];
+        if(pidgeonStats.born<60){
             enableEnemies();        
         }else if(!boss){
             enableBoss();
+        }else if(bossStats.killed>0){
+            //Next fase
         }
     }
     private void enableBoss(){
         boss=true;
-        StartCoroutine(disableEnemies());
         UI.setUpBoss();
+        StartCoroutine(disableEnemies());
     }
     private void enableEnemies(){
         EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];

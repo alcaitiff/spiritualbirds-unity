@@ -26,9 +26,16 @@ public class DevileonController : EnemyController{
         transform.position = des; 
     }
 
+    override protected void deadUpdate(){
+        Vector3 mov = new Vector3(+1, -2, 0);
+        Vector3 des = transform.position + mov * Time.deltaTime;
+        transform.position = des;
+        transform.rotation= transform.rotation*Quaternion.AngleAxis(90*Time.deltaTime, Vector3.back);
+    }
+
     private IEnumerator kill(){
         Debug.Log(currentHealth);
-        yield return new WaitForSeconds(Random.Range(0.1f,3f));
+        yield return new WaitForSeconds(Random.Range(0.1f,4f));
         Shoot();
         StartCoroutine(kill());
     }

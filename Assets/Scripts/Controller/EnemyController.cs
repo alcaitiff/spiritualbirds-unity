@@ -34,7 +34,7 @@ public class EnemyController :  MonoBehaviour,Hitable
     gm.stats[index].born++;
   }
 
-  protected void deadUpdate(){
+  virtual protected void deadUpdate(){
     Vector3 mov = new Vector3(+2, -7, 0);
     Vector3 des = transform.position + mov * Time.deltaTime;
     transform.position = des;

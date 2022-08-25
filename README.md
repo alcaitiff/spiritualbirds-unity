@@ -25,10 +25,10 @@ Done 🟢
 | Gameover scene | 🟢 | Death Statistics | 🟢 |
 | Menu Scene | 🟢 | Toogle Sounds | 🟢 |
 | Toogle Virtual Button | 🟢 | Tutorial texts | 🟢 |
-| Fase 1 Boss | 🟡 | Fase 2 | 🔴 |
-| Fase 1 Logic (Balance) | 🟡 | Enemy shoots | 🟡 |
+| Fase 1 Logic | 🟢 | Enemy shoots | 🟢 |
+| Fase 1 Boss | 🟢 | Fase 2 | 🟡 |
 | Improve sounds | 🔴 | Improve controls | 🔴 |
-| Fase 3 | 🔴 | Save settings | 🔴 |
+| Fase 3 | 🟡 | Save settings | 🔴 |
 | Super habilities | 🔴 | Super habilities menu | 🔴 |
 | Shield - recharge auto | 🔴 | Orbital - always around | 🔴 |
 | Pulse - shoot 24 each 5 seconds | 🔴 | Life Regen - 1hp each 5 seconds | 🔴 |
