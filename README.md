@@ -26,7 +26,8 @@ Done 🟢
 | Menu Scene | 🟢 | Toogle Sounds | 🟢 |
 | Toogle Virtual Button | 🟢 | Tutorial texts | 🟢 |
 | Fase 1 Logic | 🟢 | Enemy shoots | 🟢 |
-| Fase 1 Boss | 🟢 | Fase 2 | 🟡 |
+| Fase 1 Boss | 🟢 | Fase 2 | 🟢 |
+| Fase 2 Boss | 🟡 | Fase 2 logic | 🟡 |
 | Improve sounds | 🔴 | Improve controls | 🟢 |
 | Fase 3 | 🟡 | Save settings | 🔴 |
 | Super habilities | 🔴 | Super habilities menu | 🔴 |
@@ -35,7 +36,7 @@ Done 🟢
 | Star - change your limit to 24 | 🔴 | Pierce - don't disappear after hit | 🔴 |
 | Bounce - after hit bullet change trajectory | 🔴 | Auto Shoot - auto shoot each 1s | 🔴 |
 | Bosses on gameover screen | 🔴 | Super on gameover screen | 🔴 |
-| Fase transition | 🟡 | Statistics on pause | 🔴 |
+| Fase transition | 🟢 | Statistics on pause | 🔴 |
 
 ## ChangeLog
 
