@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour,Hitable
 {
 
   public int currentHealth = 3;
@@ -134,9 +134,14 @@ public class PlayerController : MonoBehaviour
     }
   }
 
-  public void hit(int dmg){
+  public int hit(int dmg){
     AudioSource.PlayClipAtPoint(cry, transform.position);
     changeCurrentHealth(-dmg);
+    return 0;
+  }
+
+  public bool isDead(){
+    return currentHealth<1;
   }
 
   public void addPoints(int p){

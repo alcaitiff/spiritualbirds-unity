@@ -26,7 +26,8 @@ Done 🟢
 | Menu Scene | 🟢 | Toogle Sounds | 🟢 |
 | Toogle Virtual Button | 🟢 | Tutorial texts | 🟢 |
 | Fase 1 Boss | 🟡 | Fase 2 | 🔴 |
-| Fase 1 Logic (Balance) | 🔴 | Improve controls | 🔴 |
+| Fase 1 Logic (Balance) | 🔴 | Enemy shoots | 🔴 |
+| Improve sounds | 🔴 | Improve controls | 🔴 |
 | Fase 3 | 🔴 | Save settings | 🔴 |
 
 ## ChangeLog

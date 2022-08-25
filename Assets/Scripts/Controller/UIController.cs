@@ -12,8 +12,12 @@ public class UIController : MonoBehaviour
     public PauseButton pauseButton;
     public GameManager gm;
     public GameObject fireButton;
+    public GameObject Boss;
     public TextMeshProUGUI tutorial;
+    public AudioClip bossMusic;
+    public List<BackgroundTimedScroller> backgrounds = new List<BackgroundTimedScroller>();
     private Coroutine routine;
+    private float volume = 0.1f;
     private bool tutorialActive = true;
 
     // Start is called before the first frame update
@@ -60,5 +64,16 @@ public class UIController : MonoBehaviour
         yield return new WaitForSeconds(time);
         tutorial.text="";
         tutorial.gameObject.SetActive(false);
+    }
+
+    public void setUpBoss(){
+        StartCoroutine(GetComponent<AudioSource>().CrossFade(
+                        newSound: bossMusic,
+                        finalVolume: volume,
+                        fadeTime: 3f));
+        foreach(BackgroundTimedScroller background in backgrounds){
+            background.stop=true;
+        }
+        Boss.gameObject.SetActive(true);
     }
 }

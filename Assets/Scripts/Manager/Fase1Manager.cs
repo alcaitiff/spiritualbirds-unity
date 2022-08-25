@@ -19,6 +19,7 @@ public class Fase1Manager : MonoBehaviour
     private Spawner orangeBird;    
     [SerializeField]
     private Spawner crow;
+    private bool boss = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +49,19 @@ public class Fase1Manager : MonoBehaviour
 
     void Update(){
         EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
+        if(pidgeonStats.born<3){
+            enableEnemies();        
+        }else if(!boss){
+            enableBoss();
+        }
+    }
+    private void enableBoss(){
+        boss=true;
+        disableEnemies();
+        UI.setUpBoss();
+    }
+    private void enableEnemies(){
+        EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
         if(!pidgeon.active && pidgeonStats.born==0){
             pidgeon.setInterval(4f);
             pidgeon.enable();
@@ -72,12 +86,26 @@ public class Fase1Manager : MonoBehaviour
             pidgeon.setInterval(6f);
             woodpecker.setInterval(8f);
             hawk.setInterval(7f);
+            blueJay.setInterval(10f);
             orangeBird.setInterval(4f);
             orangeBird.enable();     
+        }else if(!crow.active && pidgeonStats.born>30){
+            pidgeon.setInterval(7f);
+            woodpecker.setInterval(9f);
+            hawk.setInterval(8f);
+            orangeBird.setInterval(10f);
+            blueJay.setInterval(15f);
+            crow.setInterval(4f);
+            crow.enable();
         }
-        //crow.setInterval(4f);
-        //crow.enable();
     }
-
+    private void disableEnemies(){
+        pidgeon.disable();
+        woodpecker.disable();
+        hawk.disable();
+        orangeBird.disable();
+        blueJay.disable();
+        crow.disable();
+    }
 
 }
