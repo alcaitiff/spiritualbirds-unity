@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DevileonController : EnemyController{
+public class Boss3Controller : EnemyController{
 
     override protected void Awake(){
-        index = (int)EnemyIndexes.DEVILEON;
+        index = (int)EnemyIndexes.BOSS3;
         rand = 0f;
         velocity = 0f;
         currentHealth = 1;//000;
@@ -35,10 +35,8 @@ public class DevileonController : EnemyController{
 
     private IEnumerator attack(){
         yield return new WaitForSeconds(Random.Range(0.1f,4f));
-        if(!dead){
-            Shoot();
-            StartCoroutine(attack());
-        }
+        Shoot();
+        StartCoroutine(attack());
     }
 
 }

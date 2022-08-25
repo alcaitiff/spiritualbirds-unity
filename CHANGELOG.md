@@ -13,6 +13,10 @@
 | feat | Tutorial texts |
 | fix | Icon |
 | fix | GameOver Objects |
+| fix | Fase 1 Logic |
+| feat | Enemy shoots |
+| feat | Fase 1 Boss |
+| fix | Improve controls |
 
 ## 0.0.11
 

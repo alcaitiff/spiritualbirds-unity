@@ -18,7 +18,10 @@ public class PlayerController : MonoBehaviour,Hitable
   private FBController bulletPrefab;  
   [SerializeField]
   private HelperController helperPrefab;
-  // Start is called before the first frame update
+  
+  private bool shooting = false;
+  private float shootRate = 0.5f;
+  private Coroutine shootCoroutine;
   void Start(){
     maxStats[(int)PowerIndexes.SPEED] = 10;
     maxStats[(int)PowerIndexes.AMMO] = 10;
@@ -73,8 +76,22 @@ public class PlayerController : MonoBehaviour,Hitable
       helpers.Add(helper);
     }
   }
+  
+  public void StartShoot(){
+    if(!shooting){
+      shooting = true;
+      shootCoroutine = StartCoroutine(Shoot(true));
+    }
+  }
 
-  public void Shoot(){
+  public void StopShoot(){
+    shooting = false;
+    if(shootCoroutine!=null){
+      StopCoroutine(shootCoroutine);
+    }
+  }
+
+  public IEnumerator Shoot(bool auto=false){
     if(bullets.Count<stats[(int)PowerIndexes.AMMO]){
       foreach (HelperController helper in helpers){
        helper.Shoot();
@@ -88,7 +105,14 @@ public class PlayerController : MonoBehaviour,Hitable
       if(getSpread()>1){
         ShootExtra(getSpread()-1);
       }
+    }    
+    if(auto && shooting){
+      yield return new WaitForSeconds(shootRate); 
+      shootCoroutine = StartCoroutine(Shoot(true));
+    }else{
+      yield break;
     }
+
   }
   public void ShootExtra(int num){
       Vector3 offset = new Vector3(1f, 0, 0) + transform.position;

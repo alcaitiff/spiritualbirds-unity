@@ -2,28 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Fase1Manager : MonoBehaviour
 {
     public GameManager gm;
     public UIController UI;
     [SerializeField]
-    private Spawner pidgeon;
+    protected Spawner pidgeon;
     [SerializeField]
-    private Spawner woodpecker;    
+    protected Spawner woodpecker;    
     [SerializeField]
-    private Spawner hawk;    
+    protected Spawner hawk;    
     [SerializeField]
-    private Spawner blueJay;
+    protected Spawner blueJay;
     [SerializeField]
-    private Spawner orangeBird;    
+    protected Spawner orangeBird;    
     [SerializeField]
-    private Spawner crow;
-    private bool boss = false;
-    // Start is called before the first frame update
-    void Start()
+    protected Spawner crow;
+    protected bool boss = false;
+    protected bool done = false;
+    protected int nextFase;
+    protected EnemyStats bossStats;
+    protected int bossIndex;
+    virtual protected void Start()
     {
         gm = GameManager.instance;
+        bossStats = gm.stats[(int)EnemyIndexes.DEVILEON];
+        bossIndex = 0;
+        nextFase=(int)SceneIndexes.FASE_2;
         gm.UI=UI;
         gm.startPlayer(new Vector3(-5,3,0));
     }
@@ -41,23 +47,23 @@ public class Fase1Manager : MonoBehaviour
         UI.setTutorial("Good luck!");
     }
 
-    void Update(){
+    virtual protected void Update(){
         EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
-        EnemyStats bossStats = gm.stats[(int)EnemyIndexes.DEVILEON];
-        if(pidgeonStats.born<60){
+        if(pidgeonStats.born<1){
             enableEnemies();        
         }else if(!boss){
             enableBoss();
-        }else if(bossStats.killed>0){
-            //Next fase
+        }else if(bossStats.killed>0 && !done){
+            done=true;
+            StartCoroutine(goToFase(nextFase));
         }
     }
-    private void enableBoss(){
+    virtual protected void enableBoss(){
         boss=true;
-        UI.setUpBoss();
+        UI.setUpBoss(bossIndex);
         StartCoroutine(disableEnemies());
     }
-    private void enableEnemies(){
+    virtual protected void enableEnemies(){
         EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
         if(!pidgeon.active && pidgeonStats.born==0){
             pidgeon.setInterval(4f);
@@ -99,7 +105,8 @@ public class Fase1Manager : MonoBehaviour
             crow.enable();
         }
     }
-    private IEnumerator disableEnemies(float time = 5f){
+
+    protected IEnumerator disableEnemies(float time = 5f){
         yield return new WaitForSeconds(time);
         pidgeon.disable();
         woodpecker.disable();
@@ -107,6 +114,11 @@ public class Fase1Manager : MonoBehaviour
         orangeBird.disable();
         blueJay.disable();
         crow.disable();
+    }
+    
+    protected IEnumerator goToFase(int fase, float time = 3f){
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(fase, LoadSceneMode.Single);
     }
 
 }

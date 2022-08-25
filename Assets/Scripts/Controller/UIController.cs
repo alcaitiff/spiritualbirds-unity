@@ -12,7 +12,8 @@ public class UIController : MonoBehaviour
     public PauseButton pauseButton;
     public GameManager gm;
     public GameObject fireButton;
-    public GameObject Boss;
+    [SerializeField]
+    public List<GameObject> bosses = new List<GameObject>();
     public TextMeshProUGUI tutorial;
     public AudioClip bossMusic;
     public List<BackgroundTimedScroller> backgrounds = new List<BackgroundTimedScroller>();
@@ -39,6 +40,15 @@ public class UIController : MonoBehaviour
         gm.Shoot();
     }        
     
+    public void StartShoot(){
+        gm.StartShoot();
+    }
+
+    public void StopShoot(){
+        gm.StopShoot();
+    }
+  
+
     public void PowerUp(){
         gm.player.PowerUp();
     }    
@@ -67,21 +77,24 @@ public class UIController : MonoBehaviour
         tutorial.gameObject.SetActive(false);
     }
 
-    public void setUpBoss(){
+    public void setUpBoss(int index){
         StartCoroutine(GetComponent<AudioSource>().CrossFade(
                         newSound: bossMusic,
                         finalVolume: volume,
                         fadeTime: 3f));
-        StartCoroutine(activateBossBattle());
+        StartCoroutine(activateBossBattle(index));
     }
-    private IEnumerator activateBossBattle(){
+    private IEnumerator activateBossBattle(int index){
         yield return new WaitForSeconds(3f);
         foreach(BackgroundTimedScroller background in backgrounds){
             yield return new WaitForSeconds(0.2f);
             background.stop=true;
         }
         yield return new WaitForSeconds(3f);
-        Boss.gameObject.SetActive(true);
+        Debug.Log(index);
+        Debug.Log(bosses);
+        Debug.Log(bosses.Count);
+        bosses[index].gameObject.SetActive(true);
     }
 
 }

@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour
 
   public PlayerController startPlayer(Vector3 position){
     if(player == null){
-      // TODO:Verificar como fazer entre fases
       PlayerController player = Instantiate(prefabPlayer, position, Quaternion.identity);
     }
     return player;
@@ -93,8 +92,17 @@ public class GameManager : MonoBehaviour
   public int powerUp(){
     return UI.powerWheel.PowerUP();
   }  
+  
   public void Shoot(){
     player.Shoot();
+  }
+  
+  public void StartShoot(){
+    player.StartShoot();
+  }
+
+  public void StopShoot(){
+    player.StopShoot();
   }
 
   public void setScore(int value){

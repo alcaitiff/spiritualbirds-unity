@@ -1348,6 +1348,22 @@ PrefabInstance:
       value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 2423210299110814236, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
+      propertyPath: bosses.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423210299110814236, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
+      propertyPath: bosses.Array.data[0]
+      value: 
+      objectReference: {fileID: 2423210299396762159}
+    - target: {fileID: 2423210299110814236, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
+      propertyPath: bosses.Array.data[1]
+      value: 
+      objectReference: {fileID: 2423210299396762158}
+    - target: {fileID: 2423210299110814236, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
+      propertyPath: bosses.Array.data[2]
+      value: 
+      objectReference: {fileID: 2423210299396762157}
+    - target: {fileID: 2423210299110814236, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
       propertyPath: backgrounds.Array.data[0]
       value: 
       objectReference: {fileID: 176712773}
@@ -1370,3 +1386,18 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
+--- !u!1 &2423210299396762157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5919393390521659641, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
+  m_PrefabInstance: {fileID: 2423210299396762156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2423210299396762158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5761504239821800858, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
+  m_PrefabInstance: {fileID: 2423210299396762156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2423210299396762159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2423210298847238035, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
+  m_PrefabInstance: {fileID: 2423210299396762156}
+  m_PrefabAsset: {fileID: 0}
