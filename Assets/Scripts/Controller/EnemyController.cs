@@ -62,15 +62,15 @@ public class EnemyController :  MonoBehaviour,Hitable
   }
 
   virtual protected void Shoot(){
-    Vector3 offset = new Vector3(-2f, 0, 0);
+    Vector3 offset = new Vector3(-1f, 1f, 0);
     Vector3 pos = transform.position + offset;
     GBController bullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
     bullet.setDMG(dmg);
     bullet.playShoot();
-    ShootExtra(spread);
+    ShootExtra(spread-1);
   }
   virtual protected void ShootExtra(int num){
-    Vector3 offset = new Vector3(-1.5f, 0, 0) + transform.position;
+    Vector3 offset = new Vector3(-1f, 1f, 0) + transform.position;
     if(num>0){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setDMG(dmg);}
     if(num>1){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.4f, 0), Quaternion.identity).setDMG(dmg);}
     if(num>2){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(dmg).setAngle(10f);}
@@ -85,6 +85,13 @@ public class EnemyController :  MonoBehaviour,Hitable
   // *********************************
   //              Public
   // *********************************
+  public IEnumerator attack(float min,float max){
+    yield return new WaitForSeconds(Random.Range(min,max));
+    if(!dead){
+      Shoot();
+      StartCoroutine(attack(min,max));
+    }
+  }
   public int hit(int dmg){
     AudioSource.PlayClipAtPoint(audioHit, transform.position);
     changeLife(-dmg);

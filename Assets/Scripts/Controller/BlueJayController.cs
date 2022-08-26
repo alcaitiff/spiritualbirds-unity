@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlueJayController: EnemyController
-{
-  // Start is called before the first frame update
+public class BlueJayController: EnemyController{
+
   override protected void Awake(){
       index = (int)EnemyIndexes.BLUEJAY;
       rand = Random.Range(-6f, 6f);
       velocity = Random.Range(2f, 3f);
+      spread = 3;
       currentHealth = 8;
       points = 6;
       dmg = 5;
@@ -23,6 +23,28 @@ public class BlueJayController: EnemyController
       Vector3 des = transform.position + mov * Time.deltaTime;
       transform.position = des;
       velocity+=Time.deltaTime*0.3f;
+  }
+
+  override protected void Shoot(){
+      Vector3 offset = new Vector3(-0.5f, -0.2f, 0f);
+      Vector3 pos = transform.position + offset;
+      GBController bullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
+      bullet.setDMG(dmg);
+      bullet.playShoot();
+      ShootExtra(spread-1);
+  }
+  override protected void ShootExtra(int num){
+      Vector3 offset = new Vector3(-0.5f, -0.2f, 0f) + transform.position;
+      if(num>0){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setDMG(dmg).setAngle(40f);}
+      if(num>1){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.4f, 0), Quaternion.identity).setDMG(dmg).setAngle(-40f);}
+      if(num>2){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(dmg).setAngle(10f);}
+      if(num>3){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(dmg).setAngle(-10f);}      
+      if(num>4){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(dmg).setAngle(20f);}
+      if(num>5){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(dmg).setAngle(-20f);}      
+      if(num>6){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(dmg).setAngle(30f);}
+      if(num>7){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(dmg).setAngle(-30f);}
+      if(num>8){Instantiate(bulletPrefab, offset+new Vector3(1f, 0.6f, 0), Quaternion.identity).setDMG(dmg).setAngle(15f);}
+      if(num>9){Instantiate(bulletPrefab, offset+new Vector3(1f, -0.6f, 0), Quaternion.identity).setDMG(dmg).setAngle(-15f);}
   }
 
 }

@@ -36,7 +36,7 @@ public class Fase1Manager : MonoBehaviour
 
     private IEnumerator initialTutorial(){
         yield return new WaitForSeconds(8f);
-        UI.setTutorial("Use your finger on the left side to move \nArrow keys and joysticks are supported too");
+        UI.setTutorial("Touch on the left side to move \nArrow keys and joysticks are supported too");
         yield return new WaitForSeconds(8f);
         UI.setTutorial("Use the button to shoot\nOn keyboards use 'Q'");
         yield return new WaitForSeconds(8f);
@@ -49,7 +49,7 @@ public class Fase1Manager : MonoBehaviour
 
     virtual protected void Update(){
         EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
-        if(pidgeonStats.born<1){
+        if(pidgeonStats.born<60){
             enableEnemies();        
         }else if(!boss){
             enableBoss();

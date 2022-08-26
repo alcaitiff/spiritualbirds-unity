@@ -8,14 +8,13 @@ public class Spawner : MonoBehaviour
     private GameObject prefab;
     [SerializeField]
     public bool active = false;
+    [SerializeField]
+    public bool attack;
+    public float minRate = 1f;
+    public float maxRate = 10f;
 
     [SerializeField]
     private float interval = 1f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     public void enable(){
         active = true;
@@ -30,6 +29,9 @@ public class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(seconds,seconds*1.5f));
         GameObject e = Instantiate(enemy, new Vector3(12f, Random.Range(-3.5f, 3f), 0), Quaternion.identity);
+        if(attack){
+            StartCoroutine(e.GetComponent<EnemyController>().attack(minRate,maxRate));
+        }
         if(this.active){
             StartCoroutine(spawnEnemy(seconds, enemy));
         }

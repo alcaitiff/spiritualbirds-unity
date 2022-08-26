@@ -167,4 +167,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651b6506ce980309eb633d521d16357e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4971467091327278943, guid: 13c02ff03d563fe33b0ab83cf6ebf3a6, type: 3}
   audioHit: {fileID: 8300000, guid: ccf4411610ba22a8fa80b0b22a0e452f, type: 3}

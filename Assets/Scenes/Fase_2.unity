@@ -177,7 +177,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b32d7f8003f0edb03925b2bc215d57fb, type: 2}
+  - {fileID: 2100000, guid: e1c92e3418fc98ec0bf77f3cb2574b0d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -556,6 +556,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: 84245b58864d98c7eb6cf295d62cb82c, type: 3}
   active: 0
+  attack: 0
+  minRate: 1
+  maxRate: 10
   interval: 2
 --- !u!4 &904094931
 Transform:
@@ -603,6 +606,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: 69cbfcab635621b4db4a39eebdde8f6d, type: 3}
   active: 0
+  attack: 1
+  minRate: 1
+  maxRate: 10
   interval: 1
 --- !u!4 &912872081
 Transform:
@@ -727,6 +733,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: c517016bbd3f33863a7f8b054b6cd087, type: 3}
   active: 0
+  attack: 1
+  minRate: 1
+  maxRate: 2
   interval: 2
 --- !u!4 &1097251136
 Transform:
@@ -991,6 +1000,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: 52c3bd5c789e07fce8301cda288eee65, type: 3}
   active: 0
+  attack: 1
+  minRate: 3
+  maxRate: 4
   interval: 1
 --- !u!1 &1649107478
 GameObject:
@@ -1038,6 +1050,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: f593482f5021875c6b2b33ca33d56898, type: 3}
   active: 0
+  attack: 1
+  minRate: 4
+  maxRate: 5
   interval: 2
 --- !u!1 &1675015799
 GameObject:
@@ -1165,7 +1180,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a15570483513fcd218b16c0356b38951, type: 2}
+  - {fileID: 2100000, guid: b06722d5552e2f1b4947ba6972db22d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1256,6 +1271,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: 4cb1dadce01a80c07b3ba8b1ca183f13, type: 3}
   active: 0
+  attack: 1
+  minRate: 1
+  maxRate: 2
   interval: 1
 --- !u!1001 &2423210299396762156
 PrefabInstance:

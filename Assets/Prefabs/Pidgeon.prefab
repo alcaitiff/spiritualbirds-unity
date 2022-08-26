@@ -120,9 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f114a9ba685e20c2b1f92ac1bbdea14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 1
-  points: 1
-  velocity: 0
+  bulletPrefab: {fileID: 4971467091327278943, guid: 13c02ff03d563fe33b0ab83cf6ebf3a6, type: 3}
   audioHit: {fileID: 8300000, guid: ccf4411610ba22a8fa80b0b22a0e452f, type: 3}
 --- !u!61 &8211888368622399688
 BoxCollider2D:

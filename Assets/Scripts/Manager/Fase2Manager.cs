@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Fase2Manager : Fase1Manager
 {
+    private bool superSelected = false;
     override protected void Start()
     {
         gm = GameManager.instance;
@@ -14,18 +15,24 @@ public class Fase2Manager : Fase1Manager
         done=false;
         boss=false;
         gm.UI=UI;
-        gm.startPlayer(new Vector3(-5,3,0));
+        
+        //gm.startPlayer(new Vector3(-5,3,0));
+        //StartCoroutine(UI.setScroller(true,0f));
+        
+        //gm.stats[(int)EnemyIndexes.PIDGEON].born=60;
     }
 
     override protected void Update(){
-        EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
-        if(pidgeonStats.born<3){
-            enableEnemies();        
-        }else if(!boss){
-            enableBoss();
-        }else if(bossStats.killed>0 && !done){
-            done=true;
-            StartCoroutine(goToFase(nextFase));
+        if(superSelected){
+            EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
+            if(pidgeonStats.born<120){
+                enableEnemies();        
+            }else if(!boss){
+                enableBoss();
+            }else if(bossStats.killed>0 && !done){
+                done=true;
+                StartCoroutine(goToFase(nextFase));
+            }
         }
     }
 
@@ -34,32 +41,32 @@ public class Fase2Manager : Fase1Manager
         if(!pidgeon.active){
             pidgeon.setInterval(4f);
             pidgeon.enable();
-        }else if(!woodpecker.active && pidgeonStats.born>6 && pidgeonStats.born<12){
+        }else if(!woodpecker.active && pidgeonStats.born>66 && pidgeonStats.born<72){
             pidgeon.setInterval(2f);
-        }else if(!woodpecker.active && pidgeonStats.born>12){
+        }else if(!woodpecker.active && pidgeonStats.born>72){
             pidgeon.setInterval(4f);
             woodpecker.setInterval(6f);
             woodpecker.enable();
-        }else if(!hawk.active && pidgeonStats.born>18){
+        }else if(!hawk.active && pidgeonStats.born>78){
             pidgeon.setInterval(5f);
             woodpecker.setInterval(7f);
             hawk.setInterval(6f);
             hawk.enable();
-        }else if(!blueJay.active && pidgeonStats.born>24){
-            pidgeon.setInterval(6f);
+        }else if(!blueJay.active && pidgeonStats.born>84){
+            pidgeon.setInterval(5f);
             woodpecker.setInterval(8f);
             hawk.setInterval(7f);
             blueJay.setInterval(9f);
             blueJay.enable();
-        }else if(!orangeBird.active && pidgeonStats.born>30){
-            pidgeon.setInterval(6f);
+        }else if(!orangeBird.active && pidgeonStats.born>90){
+            pidgeon.setInterval(5f);
             woodpecker.setInterval(8f);
             hawk.setInterval(7f);
             blueJay.setInterval(10f);
             orangeBird.setInterval(4f);
             orangeBird.enable();     
-        }else if(!crow.active && pidgeonStats.born>40){
-            pidgeon.setInterval(7f);
+        }else if(!crow.active && pidgeonStats.born>100){
+            pidgeon.setInterval(5f);
             woodpecker.setInterval(9f);
             hawk.setInterval(8f);
             orangeBird.setInterval(10f);

@@ -86,15 +86,19 @@ public class UIController : MonoBehaviour
     }
     private IEnumerator activateBossBattle(int index){
         yield return new WaitForSeconds(3f);
-        foreach(BackgroundTimedScroller background in backgrounds){
-            yield return new WaitForSeconds(0.2f);
-            background.stop=true;
-        }
-        yield return new WaitForSeconds(3f);
-        Debug.Log(index);
-        Debug.Log(bosses);
-        Debug.Log(bosses.Count);
+        StartCoroutine(setScroller(false));
+        yield return new WaitForSeconds(4f);
         bosses[index].gameObject.SetActive(true);
+    }
+
+    public IEnumerator setScroller(bool value, float time=0.2f){
+        foreach(BackgroundTimedScroller background in backgrounds){
+            yield return new WaitForSeconds(time);
+            background.stop=!value;
+            if(value){
+                background.scrollSpeed=0.5f;
+            }
+        }
     }
 
 }
