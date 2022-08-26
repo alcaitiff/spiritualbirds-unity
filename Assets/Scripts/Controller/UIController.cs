@@ -7,11 +7,13 @@ public class UIController : MonoBehaviour
 {
     public GameObject score;
     public PowerWheelController powerWheel;
+    public GameObject bullets;
     public DynamicJoystick dynamicJoystick;
     public ProgressBarController hp;
     public PauseButton pauseButton;
     public GameManager gm;
     public GameObject fireButton;
+    public SuperSelectionController superSelection;
     [SerializeField]
     public List<GameObject> bosses = new List<GameObject>();
     public TextMeshProUGUI tutorial;
@@ -101,4 +103,21 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void showSuperSelection(){
+        superSelection.gameObject.SetActive(true);
+        superSelection.getSuperIndexes();
+        setBasicUIVisibility(false);
+    }
+
+    public void hideSuperSelection(){
+        setBasicUIVisibility(true);
+        superSelection.clear();
+        superSelection.gameObject.SetActive(false);
+    }
+
+    private void setBasicUIVisibility(bool value){
+        powerWheel.gameObject.SetActive(value);
+        hp.gameObject.SetActive(value);
+        bullets.SetActive(value);
+    }
 }

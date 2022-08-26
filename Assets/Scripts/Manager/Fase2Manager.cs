@@ -16,6 +16,7 @@ public class Fase2Manager : Fase1Manager
         boss=false;
         gm.UI=UI;
         
+        UI.showSuperSelection();
         //gm.startPlayer(new Vector3(-5,3,0));
         //StartCoroutine(UI.setScroller(true,0f));
         

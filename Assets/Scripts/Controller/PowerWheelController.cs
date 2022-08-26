@@ -7,11 +7,6 @@ public class PowerWheelController : MonoBehaviour
   public PowerUpUIController[] powerUps;
   private PowerUpUIController active;
   public int value = -1;
-  // Start is called before the first frame update
-  void Start()
-  {
-
-  }
 
   public int PowerUP()
   {
@@ -19,12 +14,6 @@ public class PowerWheelController : MonoBehaviour
     deactivate();
     value = -1;
     return ret;
-  }
-
-  // Update is called once per frame
-  void Update()
-  {
-
   }
 
   public int Inc()

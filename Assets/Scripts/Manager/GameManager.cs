@@ -126,4 +126,9 @@ public class GameManager : MonoBehaviour
     Instantiate(prefabPowerUp, position, Quaternion.identity);
   }
 
+  public void selectSuper(int index){
+    Debug.Log(index);
+    UI.hideSuperSelection();
+  }
+
 }
