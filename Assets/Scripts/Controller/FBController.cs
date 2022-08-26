@@ -38,7 +38,7 @@ public class FBController : MonoBehaviour
     Vector3 mov = new Vector3(velocity*Mathf.Cos(angle), velocity*Mathf.Sin(angle), 0);
     Vector3 des = transform.position + mov * Time.deltaTime;
     transform.position = des;
-    if(des.x>12 || des.y>4.5 || des.y<-4.5){
+    if(des.x>12.5 || des.x<-12.5 || des.y>4.5 || des.y<-4.5){
         Destroy(gameObject);
     }
   }

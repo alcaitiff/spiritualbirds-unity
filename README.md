@@ -34,7 +34,7 @@ Done 🟢
 | Super habilities | 🟡 | Fase 3 | 🟡 |
 | Shield - recharge auto | 🔴 | Orbital - always around | 🔴 |
 | Pulse - shoot 24 each 5 seconds | 🔴 |  Auto Shoot - auto shoot each 1s | 🔴 |
-| Star - change your limit to 24 | 🔴 | Pierce - don't disappear after hit | 🔴 |
+| Star - change your limit to 24 | 🟡  | Pierce - don't disappear after hit | 🔴 |
 | Bounce - after hit bullet change trajectory | 🔴 | Show Super on UI | 🔴 |
 | Bosses on gameover screen | 🔴 | Super on gameover screen | 🔴 |
 | Save settings | 🔴 |Statistics on pause | 🔴 |

@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour,Hitable
   private bool shooting = false;
   private float shootRate = 0.5f;
   private Coroutine shootCoroutine;
-  void Start(){
+  void Awake(){
     maxStats[(int)PowerIndexes.SPEED] = 10;
     maxStats[(int)PowerIndexes.AMMO] = 10;
     maxStats[(int)PowerIndexes.DMG] = 100;
@@ -38,6 +38,9 @@ public class PlayerController : MonoBehaviour,Hitable
     stats[(int)PowerIndexes.HEALTH] = 3;
     stats[(int)PowerIndexes.SPREAD] = 1;
     stats[(int)PowerIndexes.OPTION] = 0;
+
+  }
+  void Start(){
     gm = GameManager.instance;
     gm.player=this;
   }
@@ -101,11 +104,15 @@ public class PlayerController : MonoBehaviour,Hitable
       Vector3 offset = new Vector3(1f, 0, 0);
       Vector3 pos = transform.position + offset;
       FBController bullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
-      bullet.setDMG(this.getDMG()).setPlayer(this);
+      bullet.setDMG(getDMG()).setPlayer(this);
       bullets.Add(bullet);
       bullet.playShoot();
       if(getSpread()>1){
-        ShootExtra(getSpread()-1);
+        if(maxStats[(int)PowerIndexes.SPREAD]>11){
+          ShootStar(getSpread()-1);
+        }else{
+          ShootExtra(getSpread()-1);
+        }
       }
     }    
     if(auto && shooting){
@@ -116,18 +123,47 @@ public class PlayerController : MonoBehaviour,Hitable
     }
 
   }
+
   public void ShootExtra(int num){
+    Vector3 offset = new Vector3(1f, 0, 0) + transform.position;
+    if(num>0){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).transform.localScale*=0.5f;}
+    if(num>1){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.4f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).transform.localScale*=0.5f;}
+    if(num>2){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(15f).transform.localScale*=0.4f;}
+    if(num>3){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(-15f).transform.localScale*=0.4f;}      
+    if(num>4){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(30f).transform.localScale*=0.4f;}
+    if(num>5){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(-30f).transform.localScale*=0.4f;}      
+    if(num>6){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(45f).transform.localScale*=0.4f;}
+    if(num>7){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(-45f).transform.localScale*=0.4f;}
+    if(num>8){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(60f).transform.localScale*=0.4f;}
+    if(num>9){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(-60f).transform.localScale*=0.4f;}
+  }
+  public void ShootStar(int num){
       Vector3 offset = new Vector3(1f, 0, 0) + transform.position;
-      if(num>0){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).transform.localScale*=0.5f;}
-      if(num>1){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.4f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).transform.localScale*=0.5f;}
-      if(num>2){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(15f).transform.localScale*=0.4f;}
-      if(num>3){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(-15f).transform.localScale*=0.4f;}      
-      if(num>4){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(30f).transform.localScale*=0.4f;}
-      if(num>5){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(-30f).transform.localScale*=0.4f;}      
-      if(num>6){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(45f).transform.localScale*=0.4f;}
-      if(num>7){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(-45f).transform.localScale*=0.4f;}
-      if(num>8){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(60f).transform.localScale*=0.4f;}
-      if(num>9){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(-60f).transform.localScale*=0.4f;}
+      if(num>0){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(15f).transform.localScale*=0.4f;}
+      if(num>1){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.4f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-15f).transform.localScale*=0.4f;}
+      if(num>2){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(30f).transform.localScale*=0.4f;}
+      if(num>3){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-30f).transform.localScale*=0.4f;}
+      if(num>4){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(45f).transform.localScale*=0.4f;}
+      if(num>5){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-45f).transform.localScale*=0.4f;}
+      if(num>6){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(60f).transform.localScale*=0.4f;}
+      if(num>7){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-60f).transform.localScale*=0.4f;}
+      if(num>8){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(75f).transform.localScale*=0.4f;}
+      if(num>9){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-75f).transform.localScale*=0.4f;}      
+      
+      if(num>10){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(90f).transform.localScale*=0.4f;}
+      if(num>11){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.4f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-90f).transform.localScale*=0.4f;}
+      if(num>12){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(105f).transform.localScale*=0.4f;}
+      if(num>13){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-105f).transform.localScale*=0.4f;}      
+      if(num>14){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(120f).transform.localScale*=0.4f;}
+      if(num>15){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-120f).transform.localScale*=0.4f;}      
+      if(num>16){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(135f).transform.localScale*=0.4f;}
+      if(num>17){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-135f).transform.localScale*=0.4f;}
+      if(num>18){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(150f).transform.localScale*=0.4f;}
+      if(num>19){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-150f).transform.localScale*=0.4f;}
+      if(num>20){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(165f).transform.localScale*=0.4f;}
+      if(num>21){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.4f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-165f).transform.localScale*=0.4f;}
+      if(num>22){Instantiate(bulletPrefab, offset+new Vector3(0f, 0f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(180f).transform.localScale*=0.4f;}
+      if(num>22){Instantiate(bulletPrefab, offset+new Vector3(2f, 0f, 0), Quaternion.identity).setDMG(getDMG()*2).setPlayer(this).transform.localScale*=2f;}      
   }
   public void removeBullet(FBController bullet){
       bullets.Remove(bullet);
@@ -194,6 +230,7 @@ public class PlayerController : MonoBehaviour,Hitable
       case (int)SuperIndexes.SHIELD:
       break;
       case (int)SuperIndexes.STAR:
+        maxStats[(int)PowerIndexes.SPREAD] = 24;
       break;
       default:
       break;

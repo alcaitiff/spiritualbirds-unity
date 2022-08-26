@@ -62,12 +62,14 @@ public class EnemyController :  MonoBehaviour,Hitable
   }
 
   virtual protected void Shoot(){
-    Vector3 offset = new Vector3(-1f, 1f, 0);
-    Vector3 pos = transform.position + offset;
-    GBController bullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
-    bullet.setDMG(dmg);
-    bullet.playShoot();
-    ShootExtra(spread-1);
+    if(transform!=null){
+      Vector3 offset = new Vector3(-1f, 1f, 0);
+      Vector3 pos = transform.position + offset;
+      GBController bullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
+      bullet.setDMG(dmg);
+      bullet.playShoot();
+      ShootExtra(spread-1);
+    }
   }
   virtual protected void ShootExtra(int num){
     Vector3 offset = new Vector3(-1f, 1f, 0) + transform.position;
