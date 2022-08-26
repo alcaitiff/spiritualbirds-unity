@@ -30,7 +30,7 @@ Done 🟢
 | Fase 2 Boss | 🟡 | Fase 2 logic | 🟡 |
 | Improve sounds | 🔴 | Improve controls | 🟢 |
 | Fase 3 | 🟡 | Save settings | 🔴 |
-| Super habilities | 🔴 | Super habilities menu | 🔴 |
+| Super habilities | 🔴 | Super habilities menu | 🟡 |
 | Shield - recharge auto | 🔴 | Orbital - always around | 🔴 |
 | Pulse - shoot 24 each 5 seconds | 🔴 | Life Regen - 1hp each 5 seconds | 🔴 |
 | Star - change your limit to 24 | 🔴 | Pierce - don't disappear after hit | 🔴 |

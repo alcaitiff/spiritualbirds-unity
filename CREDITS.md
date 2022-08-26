@@ -90,3 +90,7 @@ http://twitter.com/KenneyNL
 ### Pidgeon Horns
 
 "Designed by macrovector / Freepik"
+
+### Icons
+
+Icons made from [http://www.onlinewebfonts.com/icon] licensed by CC BY 3.0
