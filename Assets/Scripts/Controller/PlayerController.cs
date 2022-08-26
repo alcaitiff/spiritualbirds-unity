@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour,Hitable
   public int score = 0;
   public AudioClip death;
   public AudioClip cry;
+  private bool regenActive = false;
+  private Coroutine regenCoroutine;
   public GameManager gm;
   private int[] maxStats = new int[6];
   private int[] stats = new int[6];
@@ -173,11 +175,48 @@ public class PlayerController : MonoBehaviour,Hitable
     gm.setScore(score);
   }
 
+  public void addSuper(int index){
+    switch (index)
+    {
+      case (int)SuperIndexes.AUTO:
+      break;
+      case (int)SuperIndexes.BOUNCE:
+      break;
+      case (int)SuperIndexes.ORBITAL:
+      break;
+      case (int)SuperIndexes.PIERCE:
+      break;
+      case (int)SuperIndexes.PULSE:
+      break;
+      case (int)SuperIndexes.REGEN:
+      regenActive = true;
+      break;
+      case (int)SuperIndexes.SHIELD:
+      break;
+      case (int)SuperIndexes.STAR:
+      break;
+      default:
+      break;
+    }
+  }
+
+  private IEnumerator regen(){
+    yield return new WaitForSeconds(5f);
+    regenCoroutine = null;
+    Heal();
+  }
+
   private void changeCurrentHealth(int value){
     currentHealth += value;
+    if(currentHealth>getMaxHP()){
+      currentHealth=getMaxHP();
+    };
     if(currentHealth<1){
       AudioSource.PlayClipAtPoint(death, transform.position);
     }
+    if(regenActive && regenCoroutine==null && currentHealth<getMaxHP()){
+      regenCoroutine = StartCoroutine(regen());
+    } 
     gm.setLife(currentHealth,getMaxHP());
   }
 }

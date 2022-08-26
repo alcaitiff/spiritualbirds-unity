@@ -15,15 +15,16 @@ public class Fase2Manager : Fase1Manager
         done=false;
         boss=false;
         gm.UI=UI;
-        
         UI.showSuperSelection();
-        //gm.startPlayer(new Vector3(-5,3,0));
-        //StartCoroutine(UI.setScroller(true,0f));
-        
         //gm.stats[(int)EnemyIndexes.PIDGEON].born=60;
     }
 
     override protected void Update(){
+        if(!superSelected && gm.getSuper().Count>0){
+            superSelected=true;
+            gm.startPlayer(new Vector3(-5,3,0));
+            StartCoroutine(UI.setScroller(true,0f));
+        }
         if(superSelected){
             EnemyStats pidgeonStats = gm.stats[(int)EnemyIndexes.PIDGEON];
             if(pidgeonStats.born<120){

@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
   [SerializeField]
   private PlayerController prefabPlayer;
   public List<EnemyStats> stats = new List<EnemyStats>();
+  private List<int> super = new List<int>();
   public PlayerController player;
   private int numEnemies;
   private void Awake()
@@ -54,7 +55,10 @@ public class GameManager : MonoBehaviour
 
   public PlayerController startPlayer(Vector3 position){
     if(player == null){
-      PlayerController player = Instantiate(prefabPlayer, position, Quaternion.identity);
+      player = Instantiate(prefabPlayer, position, Quaternion.identity) as PlayerController;
+    }
+    foreach(int index in super){
+      player.addSuper(index);
     }
     return player;
   }
@@ -127,8 +131,11 @@ public class GameManager : MonoBehaviour
   }
 
   public void selectSuper(int index){
-    Debug.Log(index);
+    super.Add(index);
     UI.hideSuperSelection();
   }
 
+  public List<int> getSuper(){
+    return super;
+  }
 }

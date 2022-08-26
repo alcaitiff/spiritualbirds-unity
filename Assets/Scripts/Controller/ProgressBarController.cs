@@ -23,7 +23,14 @@ public class ProgressBarController : MonoBehaviour
   void GetCurrentFill()
   {
     float fillAmount = (float)current / (float)maximum;
-    mask.fillAmount = fillAmount;
+    //mask.fillAmount = fillAmount;
+    
+    if(Mathf.Abs(mask.fillAmount-fillAmount)<0.003f){
+      mask.fillAmount = fillAmount;
+    }else{
+      mask.fillAmount += (mask.fillAmount>fillAmount)?-0.003f:0.003f;
+    }
+      
   }
 
   public void setValue(int c,int m){
