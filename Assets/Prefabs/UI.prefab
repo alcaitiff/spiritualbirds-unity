@@ -1021,6 +1021,7 @@ MonoBehaviour:
   pauseButton: {fileID: 2423210300545894874}
   gm: {fileID: 0}
   fireButton: {fileID: 2423210299233169105}
+  buffPrefab: {fileID: 5539048803684942849, guid: c701582d8b0d5cffb817cac0fd1d1e11, type: 3}
   superSelection: {fileID: 813296427056505581}
   bosses: []
   tutorial: {fileID: 2423210298957563997}

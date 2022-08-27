@@ -132,10 +132,11 @@ public class GameManager : MonoBehaviour
 
   public void selectSuper(int index){
     super.Add(index);
-    UI.hideSuperSelection();
+    UI.hideSuperSelection(index);
   }
 
   public List<int> getSuper(){
     return super;
   }
+  
 }

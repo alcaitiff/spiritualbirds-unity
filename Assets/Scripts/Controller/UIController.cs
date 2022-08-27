@@ -13,6 +13,7 @@ public class UIController : MonoBehaviour
     public PauseButton pauseButton;
     public GameManager gm;
     public GameObject fireButton;
+    public SuperItemUIController buffPrefab;
     public SuperSelectionController superSelection;
     [SerializeField]
     public List<GameObject> bosses = new List<GameObject>();
@@ -109,7 +110,8 @@ public class UIController : MonoBehaviour
         setBasicUIVisibility(false);
     }
 
-    public void hideSuperSelection(){
+    public void hideSuperSelection(int index){
+        updateUIForSuper(index);
         setBasicUIVisibility(true);
         superSelection.clear();
         superSelection.gameObject.SetActive(false);
@@ -119,5 +121,33 @@ public class UIController : MonoBehaviour
         powerWheel.gameObject.SetActive(value);
         hp.gameObject.SetActive(value);
         bullets.SetActive(value);
+    }
+
+    public void updateUIForSuper(int index){
+        SuperItemUIController item;
+        switch (index){
+            case (int)SuperIndexes.AUTO:
+            break;
+            case (int)SuperIndexes.BOUNCE:
+            break;
+            case (int)SuperIndexes.ORBITAL:
+            break;
+            case (int)SuperIndexes.PIERCE:
+            break;
+            case (int)SuperIndexes.PULSE:
+            break;
+            case (int)SuperIndexes.REGEN:
+                item = Instantiate(buffPrefab, transform) as SuperItemUIController;
+                item.index = index;
+                item.updateTexture();
+            break;
+            case (int)SuperIndexes.SHIELD:
+            break;
+            case (int)SuperIndexes.STAR:
+                
+            break;
+            default:
+            break;
+        }
     }
 }

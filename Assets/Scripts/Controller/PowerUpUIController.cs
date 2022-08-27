@@ -6,7 +6,6 @@ public class PowerUpUIController : MonoBehaviour
 {
   public bool active = false;
   private SpriteRenderer spriteRenderer;
-  // Start is called before the first frame update
   void Start()
   {
     spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
