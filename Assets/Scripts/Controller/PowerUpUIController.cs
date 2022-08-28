@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerUpUIController : MonoBehaviour
 {
   public bool active = false;
   private SpriteRenderer spriteRenderer;
+  public List<Sprite> superSprites = new List<Sprite>();
   void Start()
   {
     spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -14,8 +16,8 @@ public class PowerUpUIController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    int alpha = active ? 1 : 0;
-    spriteRenderer.color = new Color(1, 1, 1, alpha);
+    float amount = active ? 0f : 1f;
+    spriteRenderer.material.SetFloat("_GrayscaleAmount",amount);
   }
 
   public void Toggle()
@@ -29,5 +31,9 @@ public class PowerUpUIController : MonoBehaviour
   public void DeActivate()
   {
     active = false;
+  }
+  public void setSprite(int index){
+     spriteRenderer.sprite=superSprites[index];
+     transform.localScale*=0.5f;
   }
 }

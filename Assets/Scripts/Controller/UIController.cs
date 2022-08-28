@@ -144,7 +144,7 @@ public class UIController : MonoBehaviour
             case (int)SuperIndexes.SHIELD:
             break;
             case (int)SuperIndexes.STAR:
-                
+                powerWheel.powerUps[(int)PowerIndexes.SPREAD].setSprite((int)SuperIndexes.STAR);
             break;
             default:
             break;
