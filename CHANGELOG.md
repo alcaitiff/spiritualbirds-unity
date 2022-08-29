@@ -6,7 +6,9 @@
 | -- | -- |
 | fix | SCORE among fases |
 | fix | PowerWheel alteration |
-
+| feat | Save settings |
+| feat | Bosses on gameover screen |
+| feat | Enemies Change sprite on hit  |
 ## 0.0.12
 
 | Type | Description |
