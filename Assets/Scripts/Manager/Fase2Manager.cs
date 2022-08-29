@@ -9,14 +9,14 @@ public class Fase2Manager : Fase1Manager
     override protected void Start()
     {
         gm = GameManager.instance;
-        bossStats = gm.stats[(int)EnemyIndexes.BOSS2];
+        bossStats = gm.stats[(int)EnemyIndexes.DEVILJAY];
         bossIndex = 1;
         nextFase=(int)SceneIndexes.FASE_3;
         done=false;
         boss=false;
         gm.UI=UI;
         UI.showSuperSelection();
-        //gm.stats[(int)EnemyIndexes.PIDGEON].born=70;
+        gm.stats[(int)EnemyIndexes.PIDGEON].born=120;
     }
 
     override protected void Update(){

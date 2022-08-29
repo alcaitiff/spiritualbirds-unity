@@ -1023,7 +1023,10 @@ MonoBehaviour:
   fireButton: {fileID: 2423210299233169105}
   buffPrefab: {fileID: 5539048803684942849, guid: c701582d8b0d5cffb817cac0fd1d1e11, type: 3}
   superSelection: {fileID: 813296427056505581}
-  bosses: []
+  bosses:
+  - {fileID: 2423210298847238035}
+  - {fileID: 5761504239821800858}
+  - {fileID: 5919393390521659641}
   tutorial: {fileID: 2423210298957563997}
   bossMusic: {fileID: 8300000, guid: ca967eb64c1ece127a6c0ae9ad8cf569, type: 3}
   backgrounds:
@@ -2938,7 +2941,7 @@ GameObject:
   - component: {fileID: 7786722783774349752}
   - component: {fileID: 2810820099061734034}
   m_Layer: 6
-  m_Name: Boss2
+  m_Name: DevilJay
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2953,7 +2956,7 @@ RectTransform:
   m_GameObject: {fileID: 5761504239821800858}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -240, y: 240, z: 108}
+  m_LocalScale: {x: 200, y: 200, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2423210299110814210}
@@ -3005,7 +3008,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -929049982, guid: f2328af41fc27b1989423d3a1298f5cd, type: 3}
+  m_Sprite: {fileID: -328249953, guid: 036864d07dcd5b221aa4e47dcf78e8b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3026,7 +3029,7 @@ Animator:
   m_GameObject: {fileID: 5761504239821800858}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 11ab6a1f4cac9883cae49e127770411b, type: 2}
+  m_Controller: {fileID: 9100000, guid: aff6d518573385ec685767ec5ea40a32, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3049,18 +3052,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.32429606, y: 0.19794673}
+  m_Offset: {x: -0.064802885, y: 0.26279664}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.2755556, y: 2.28}
+    oldSize: {x: 3, y: 3.0058594}
     newSize: {x: 2.2755556, y: 2.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2226473, y: 0.8901609}
+  m_Size: {x: 2.000845, y: 1.1171353}
   m_EdgeRadius: 0
 --- !u!50 &7786722783774349752
 Rigidbody2D:

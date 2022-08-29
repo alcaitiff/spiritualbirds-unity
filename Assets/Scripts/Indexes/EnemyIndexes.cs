@@ -11,6 +11,6 @@ public enum EnemyIndexes
   ORANGE_BIRD = 4,
   CROW = 5,
   DEVILEON = 6,
-  BOSS2 = 7,
+  DEVILJAY = 7,
   BOSS3 = 8
 }
