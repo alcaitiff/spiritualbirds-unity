@@ -23,6 +23,8 @@ public class UIController : MonoBehaviour
     private Coroutine routine;
     private float volume = 0.1f;
     private bool tutorialActive = true;
+    [SerializeField]
+    public AudioClip audioSelectSuper;
 
     // Start is called before the first frame update
     void Start(){
@@ -111,6 +113,7 @@ public class UIController : MonoBehaviour
     }
 
     public void hideSuperSelection(int index){
+        AudioSource.PlayClipAtPoint(audioSelectSuper, new Vector3(0f,0f,-10f));
         updateUIForSuper(index);
         setBasicUIVisibility(true);
         superSelection.clear();

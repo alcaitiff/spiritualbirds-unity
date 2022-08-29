@@ -39,7 +39,6 @@ public class GBController : MonoBehaviour
   void OnTriggerEnter2D(Collider2D other){
     if(other.tag=="Shield" && !other.gameObject.GetComponent<Hitable>().isDead()){
       Hitable e = other.gameObject.GetComponent<Hitable>();
-      AudioSource.PlayClipAtPoint(audioHit, new Vector3(0f,0f,-10f));
       e.hit(dmg);
       Destroy(gameObject);
     }else if(other.tag=="Player"){

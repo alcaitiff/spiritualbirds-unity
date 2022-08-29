@@ -42,7 +42,7 @@ public class EnemyController :  MonoBehaviour,Hitable
   }
 
   protected void outOfBoundsUpdate(){
-    if(transform.position.x<-12 || transform.position.y<-4.5){
+    if(transform.position.x<-13 || transform.position.y<-5){
       Destroy(gameObject);
     }
   }

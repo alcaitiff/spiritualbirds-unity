@@ -1032,6 +1032,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  audioSelectSuper: {fileID: 8300000, guid: 32f6cb46f0013a53c8e15e50b4b16a1e, type: 3}
 --- !u!1 &2423210299233169105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,7 +1469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2423210299548430574
 RectTransform:
   m_ObjectHideFlags: 0
