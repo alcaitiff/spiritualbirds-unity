@@ -17,6 +17,19 @@
 | feat | Enemy shoots |
 | feat | Fase 1 Boss |
 | fix | Improve controls |
+| feat | Super habilities menu |
+| fix | Improve sounds |
+| feat | Super habilities |
+| feat | Fase 2 logic |
+| feat | Life Regen - 1hp each 5 seconds |
+| feat | Star - change your limit to 24 |
+| feat | Pierce - don't disappear after hit |
+| feat | Pulse - shoot 24 each 5 seconds |
+| feat | Auto Shoot - auto shoot each 1s |
+| feat | Bounce - after hit bullet change trajectory |
+| feat | Show Super on UI |
+| feat | Shield - recharge auto |
+| feat | Orbital - always around |
 
 ## 0.0.11
 

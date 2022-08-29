@@ -8,7 +8,7 @@ public class HealController : PowerUPController
         if(other.tag=="Player"){
             Animator animator = gameObject.GetComponent<Animator>();
             animator.SetBool("Hit", true);        
-            AudioSource.PlayClipAtPoint(hit, transform.position);
+            AudioSource.PlayClipAtPoint(hit, new Vector3(0f,0f,-10f));
             PlayerController p = other.gameObject.GetComponent<PlayerController>();
             p.Heal();
         };

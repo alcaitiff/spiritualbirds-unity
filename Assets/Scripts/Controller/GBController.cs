@@ -13,7 +13,7 @@ public class GBController : MonoBehaviour
   public AudioClip audioShoot;
   public void playShoot()
   {
-    AudioSource.PlayClipAtPoint(audioShoot, transform.position);
+    AudioSource.PlayClipAtPoint(audioShoot, new Vector3(0f,0f,-10f));
   }
 
   public GBController setAngle(float degrees){
@@ -37,9 +37,14 @@ public class GBController : MonoBehaviour
     }
   }
   void OnTriggerEnter2D(Collider2D other){
-    if(other.tag=="Player"){
+    if(other.tag=="Shield" && !other.gameObject.GetComponent<Hitable>().isDead()){
       Hitable e = other.gameObject.GetComponent<Hitable>();
-      AudioSource.PlayClipAtPoint(audioHit, transform.position);
+      AudioSource.PlayClipAtPoint(audioHit, new Vector3(0f,0f,-10f));
+      e.hit(dmg);
+      Destroy(gameObject);
+    }else if(other.tag=="Player"){
+      Hitable e = other.gameObject.GetComponent<Hitable>();
+      AudioSource.PlayClipAtPoint(audioHit, new Vector3(0f,0f,-10f));
       e.hit(dmg);
       Destroy(gameObject);
     };

@@ -62,7 +62,7 @@ public class EnemyController :  MonoBehaviour,Hitable
   }
 
   virtual protected void Shoot(){
-    if(transform!=null){
+    if(gameObject!=null && transform!=null){
       Vector3 offset = new Vector3(-1f, 1f, 0);
       Vector3 pos = transform.position + offset;
       GBController bullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
@@ -95,7 +95,7 @@ public class EnemyController :  MonoBehaviour,Hitable
     }
   }
   public int hit(int dmg){
-    AudioSource.PlayClipAtPoint(audioHit, transform.position);
+    AudioSource.PlayClipAtPoint(audioHit, new Vector3(0f,0f,-10f));
     changeLife(-dmg);
     return dead?points:0;
   }
@@ -107,7 +107,7 @@ public class EnemyController :  MonoBehaviour,Hitable
   // *********************************
   private void OnCollisionEnter2D(Collision2D other) {
     if(other.collider.tag=="Player"){
-      AudioSource.PlayClipAtPoint(audioHit, transform.position);
+      AudioSource.PlayClipAtPoint(audioHit, new Vector3(0f,0f,-10f));
       other.gameObject.GetComponent<PlayerController>().hit(dmg);
     };
   }

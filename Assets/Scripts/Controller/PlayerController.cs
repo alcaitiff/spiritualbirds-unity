@@ -5,7 +5,8 @@ public class PlayerController : MonoBehaviour,Hitable
 {
 
   public int currentHealth = 3;
-  public ArrayList bullets = new ArrayList();
+  public List<FBController> bullets = new List<FBController>();
+  public List<FBController> orbitalBullets = new List<FBController>();
   public List<HelperController> helpers = new List<HelperController>();
   public int score = 0;
   public AudioClip death;
@@ -17,10 +18,18 @@ public class PlayerController : MonoBehaviour,Hitable
   private int[] stats = new int[6];
   
   [SerializeField]
+  private ShieldController shield;  
+  [SerializeField]
   private FBController bulletPrefab;  
   [SerializeField]
   private HelperController helperPrefab;
-  
+  private bool pierce = false;
+  private bool pulse = false;
+  private bool bounce = false;
+  private bool orbital = false;
+  private float orbitalTime = 0f;
+  private bool auto = false;
+  private float pulseTime = 0f;
   private bool shooting = false;
   private float shootRate = 0.5f;
   private Coroutine shootCoroutine;
@@ -50,6 +59,15 @@ public class PlayerController : MonoBehaviour,Hitable
     if (Input.GetKeyDown(KeyCode.E))
     {
       AddPower(0);
+    }
+    if(pulse){
+      pulseShoot(Time.deltaTime);
+    }
+    if(orbital){
+      orbitalShoot(Time.deltaTime);
+    }
+    if(auto){
+      StartShoot();
     }
   }
 
@@ -96,15 +114,39 @@ public class PlayerController : MonoBehaviour,Hitable
     }
   }
 
-  public IEnumerator Shoot(bool auto=false){
+  public void pulseShoot(float deltaTime){
+    if(pulse){
+      pulseTime+=deltaTime;
+      if(pulseTime>=shootRate*5){
+        FBController bullet = instantiateBullet(0,getDMG(),0.4f,0f,0f);
+        bullet.playShoot();
+        ShootStar(22);
+        pulseTime=0f;
+      }
+    }
+  }
+
+  public void orbitalShoot(float deltaTime){
+    if(orbital){
+      orbitalTime+=deltaTime;
+      if(orbitalTime>=shootRate*6){
+        if(orbitalBullets.Count<stats[(int)PowerIndexes.SPEED]){
+          FBController bullet = Instantiate(bulletPrefab, transform);
+          bullet.setOrbital().setAngle(-90).setDMG(getDMG()).setPierce(pierce).setPlayer(this).transform.localScale*=0.8f;
+          bullet.playShoot();
+          orbitalBullets.Add(bullet);
+        }
+        orbitalTime=0f;
+      }
+    }
+  }
+
+  public IEnumerator Shoot(bool repeat=false){
     if(bullets.Count<stats[(int)PowerIndexes.AMMO]){
       foreach (HelperController helper in helpers){
        helper.Shoot();
       }
-      Vector3 offset = new Vector3(1f, 0, 0);
-      Vector3 pos = transform.position + offset;
-      FBController bullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
-      bullet.setDMG(getDMG()).setPlayer(this);
+      FBController bullet = instantiateBullet(0,getDMG(),1f,0f,0f);
       bullets.Add(bullet);
       bullet.playShoot();
       if(getSpread()>1){
@@ -115,8 +157,12 @@ public class PlayerController : MonoBehaviour,Hitable
         }
       }
     }    
-    if(auto && shooting){
-      yield return new WaitForSeconds(shootRate); 
+    if(repeat && shooting){
+      if(auto){
+        yield return new WaitForSeconds(shootRate*0.3f+shootRate*0.7f/(float)stats[(int)PowerIndexes.AMMO]); 
+      }else{
+        yield return new WaitForSeconds(shootRate); 
+      }
       shootCoroutine = StartCoroutine(Shoot(true));
     }else{
       yield break;
@@ -125,48 +171,58 @@ public class PlayerController : MonoBehaviour,Hitable
   }
 
   public void ShootExtra(int num){
-    Vector3 offset = new Vector3(1f, 0, 0) + transform.position;
-    if(num>0){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).transform.localScale*=0.5f;}
-    if(num>1){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.4f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).transform.localScale*=0.5f;}
-    if(num>2){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(15f).transform.localScale*=0.4f;}
-    if(num>3){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(-15f).transform.localScale*=0.4f;}      
-    if(num>4){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(30f).transform.localScale*=0.4f;}
-    if(num>5){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(-30f).transform.localScale*=0.4f;}      
-    if(num>6){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(45f).transform.localScale*=0.4f;}
-    if(num>7){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(-45f).transform.localScale*=0.4f;}
-    if(num>8){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(60f).transform.localScale*=0.4f;}
-    if(num>9){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getHalfDMG()).setPlayer(this).setAngle(-60f).transform.localScale*=0.4f;}
+    int dmg = getHalfDMG();
+    if(num>0){instantiateBullet(0f,   dmg,0.5f,0f,0.4f);}
+    if(num>1){instantiateBullet(0f,   dmg,0.5f,0f, -0.4f);}
+    if(num>2){instantiateBullet(15f,  dmg,0.4f,0f, 0.6f);}
+    if(num>3){instantiateBullet(-15f, dmg,0.4f,0f, -0.6f);}
+    if(num>4){instantiateBullet(30f,  dmg,0.4f,0f, 0.6f);}
+    if(num>5){instantiateBullet(-30f, dmg,0.4f,0f, -0.6f);}
+    if(num>6){instantiateBullet(45f,  dmg,0.4f,0f, 0.6f);}
+    if(num>7){instantiateBullet(-45f, dmg,0.4f,0f, -0.6f);}
+    if(num>8){instantiateBullet(60f,  dmg,0.4f,0f, 0.6f);}
+    if(num>9){instantiateBullet(-60f, dmg,0.4f,0f, -0.6f);}
   }
   public void ShootStar(int num){
       Vector3 offset = new Vector3(1f, 0, 0) + transform.position;
-      if(num>0){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(15f).transform.localScale*=0.4f;}
-      if(num>1){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.4f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-15f).transform.localScale*=0.4f;}
-      if(num>2){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(30f).transform.localScale*=0.4f;}
-      if(num>3){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-30f).transform.localScale*=0.4f;}
-      if(num>4){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(45f).transform.localScale*=0.4f;}
-      if(num>5){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-45f).transform.localScale*=0.4f;}
-      if(num>6){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(60f).transform.localScale*=0.4f;}
-      if(num>7){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-60f).transform.localScale*=0.4f;}
-      if(num>8){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(75f).transform.localScale*=0.4f;}
-      if(num>9){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-75f).transform.localScale*=0.4f;}      
-      
-      if(num>10){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(90f).transform.localScale*=0.4f;}
-      if(num>11){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.4f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-90f).transform.localScale*=0.4f;}
-      if(num>12){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(105f).transform.localScale*=0.4f;}
-      if(num>13){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-105f).transform.localScale*=0.4f;}      
-      if(num>14){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(120f).transform.localScale*=0.4f;}
-      if(num>15){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-120f).transform.localScale*=0.4f;}      
-      if(num>16){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(135f).transform.localScale*=0.4f;}
-      if(num>17){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-135f).transform.localScale*=0.4f;}
-      if(num>18){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(150f).transform.localScale*=0.4f;}
-      if(num>19){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.6f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-150f).transform.localScale*=0.4f;}
-      if(num>20){Instantiate(bulletPrefab, offset+new Vector3(0f, 0.4f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(165f).transform.localScale*=0.4f;}
-      if(num>21){Instantiate(bulletPrefab, offset+new Vector3(0f, -0.4f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(-165f).transform.localScale*=0.4f;}
-      if(num>22){Instantiate(bulletPrefab, offset+new Vector3(0f, 0f, 0), Quaternion.identity).setDMG(getDMG()).setPlayer(this).setAngle(180f).transform.localScale*=0.4f;}
-      if(num>22){Instantiate(bulletPrefab, offset+new Vector3(2f, 0f, 0), Quaternion.identity).setDMG(getDMG()*2).setPlayer(this).transform.localScale*=2f;}      
+      int dmg = getDMG();
+      if(num>0){ instantiateBullet(15f,   dmg,0.4f,0f,   0.4f);}
+      if(num>1){ instantiateBullet( -15f, dmg,0.4f,0f,  -0.4f);}
+      if(num>2){ instantiateBullet( 30f,  dmg,0.4f,0f,   0.6f);}
+      if(num>3){ instantiateBullet( -30f, dmg,0.4f,0f,  -0.6f);}
+      if(num>4){ instantiateBullet( 45f,  dmg,0.4f,0f,   0.6f);}
+      if(num>5){ instantiateBullet( -45f, dmg,0.4f,0f,  -0.6f);}
+      if(num>6){ instantiateBullet( 60f,  dmg,0.4f,0f,   0.6f);}
+      if(num>7){ instantiateBullet( -60f, dmg,0.4f,0f,  -0.6f);}
+      if(num>8){ instantiateBullet( 75f,  dmg,0.4f,0f,   0.6f);}
+      if(num>9){ instantiateBullet( -75f, dmg,0.4f,0f,  -0.6f);}
+      if(num>10){instantiateBullet( 90f,  dmg,0.4f,0f,   0.4f);}
+      if(num>11){instantiateBullet( -90f, dmg,0.4f,0f,  -0.4f);}
+      if(num>12){instantiateBullet( 105f, dmg,0.4f,0f,   0.6f);}
+      if(num>13){instantiateBullet( -105f,dmg,0.4f,0f,  -0.6f);}
+      if(num>14){instantiateBullet( 120f, dmg,0.4f,0f,   0.6f);}
+      if(num>15){instantiateBullet( -120f,dmg,0.4f,0f,  -0.6f);}
+      if(num>16){instantiateBullet( 135f, dmg,0.4f,0f,   0.6f);}
+      if(num>17){instantiateBullet( -135f,dmg,0.4f,0f,  -0.6f);}
+      if(num>18){instantiateBullet( 150f, dmg,0.4f,0f,   0.6f);}
+      if(num>19){instantiateBullet( -150f,dmg,0.4f,0f,  -0.6f);}
+      if(num>20){instantiateBullet( 165f, dmg,0.4f,0f,   0.4f);}
+      if(num>21){instantiateBullet( -165f,dmg,0.4f,0f,  -0.4f);}
+      if(num>22){instantiateBullet( 180f, dmg,0.4f,0f,   0f);}
+      if(num>22){instantiateBullet( 0f,   dmg,0.4f,2f,   0f);}
   }
+
+  private FBController instantiateBullet(float angle,int dmg,float scale,float x,float y){
+      Vector3 offset = new Vector3(1f, 0, 0) + transform.position;
+      FBController bullet = Instantiate(bulletPrefab, offset+new Vector3(x, y, 0), Quaternion.identity );
+      bullet.setDMG(dmg).setBounce(bounce).setPierce(pierce).setPlayer(this).setAngle(angle).transform.localScale*=scale;
+      return bullet;
+  }
+
   public void removeBullet(FBController bullet){
-      bullets.Remove(bullet);
+      if(!bullets.Remove(bullet)){
+        orbitalBullets.Remove(bullet);
+      }
   }
 
   public void AddPower(int times = 0){
@@ -197,7 +253,7 @@ public class PlayerController : MonoBehaviour,Hitable
   }
 
   public int hit(int dmg){
-    AudioSource.PlayClipAtPoint(cry, transform.position);
+    AudioSource.PlayClipAtPoint(cry, new Vector3(0f,0f,-10f));
     changeCurrentHealth(-dmg);
     return 0;
   }
@@ -215,23 +271,29 @@ public class PlayerController : MonoBehaviour,Hitable
     switch (index)
     {
       case (int)SuperIndexes.AUTO:
-      break;
+        auto = true;
+        break;
       case (int)SuperIndexes.BOUNCE:
-      break;
+        bounce = true;
+        break;
       case (int)SuperIndexes.ORBITAL:
-      break;
+        orbital = true;
+        break;
       case (int)SuperIndexes.PIERCE:
-      break;
+        pierce = true;
+        break;
       case (int)SuperIndexes.PULSE:
-      break;
+        pulse = true;
+        break;
       case (int)SuperIndexes.REGEN:
-      regenActive = true;
-      break;
+        regenActive = true;
+        break;
       case (int)SuperIndexes.SHIELD:
+        shield.gameObject.SetActive(true);
       break;
       case (int)SuperIndexes.STAR:
         maxStats[(int)PowerIndexes.SPREAD] = 24;
-      break;
+        break;
       default:
       break;
     }
@@ -249,7 +311,7 @@ public class PlayerController : MonoBehaviour,Hitable
       currentHealth=getMaxHP();
     };
     if(currentHealth<1){
-      AudioSource.PlayClipAtPoint(death, transform.position);
+      AudioSource.PlayClipAtPoint(death, new Vector3(0f,0f,-10f));
     }
     if(regenActive && regenCoroutine==null && currentHealth<getMaxHP()){
       regenCoroutine = StartCoroutine(regen());

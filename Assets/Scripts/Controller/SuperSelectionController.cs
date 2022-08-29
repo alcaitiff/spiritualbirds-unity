@@ -10,6 +10,10 @@ public class SuperSelectionController : MonoBehaviour{
 
     public void getSuperIndexes(){
         List<int> indexes = getRandom(((int[])Enum.GetValues(typeof(SuperIndexes))).ToList(),3);
+        // List<int> indexes = new List<int>();
+        // indexes.Add(5);
+        // indexes.Add(6);
+        // indexes.Add(7);
         for(int i=0;i<3;i++){
             GameObject e = Instantiate(items[indexes[i]], transform);
             e.transform.position+=new Vector3((i-1)*2.5f,0,0);

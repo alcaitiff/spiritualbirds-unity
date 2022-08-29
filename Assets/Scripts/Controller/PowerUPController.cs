@@ -9,14 +9,14 @@ public class PowerUPController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-        AudioSource.PlayClipAtPoint(appear, transform.position);   
+        AudioSource.PlayClipAtPoint(appear, new Vector3(0f,0f,-10f));   
     }
 
     virtual public void OnTriggerEnter2D(Collider2D other){
         if(other.tag=="Player"){
             Animator animator = gameObject.GetComponent<Animator>();
             animator.SetBool("Hit", true);        
-            AudioSource.PlayClipAtPoint(hit, transform.position);
+            AudioSource.PlayClipAtPoint(hit, new Vector3(0f,0f,-10f));
             PlayerController p = other.gameObject.GetComponent<PlayerController>();
             p.AddPower();
         };

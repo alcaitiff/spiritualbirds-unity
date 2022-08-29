@@ -127,27 +127,26 @@ public class UIController : MonoBehaviour
         SuperItemUIController item;
         switch (index){
             case (int)SuperIndexes.AUTO:
-            break;
-            case (int)SuperIndexes.BOUNCE:
-            break;
-            case (int)SuperIndexes.ORBITAL:
-            break;
+                powerWheel.powerUps[(int)PowerIndexes.AMMO].setSprite((int)SuperIndexes.AUTO);
+                break;
             case (int)SuperIndexes.PIERCE:
-            break;
+                powerWheel.powerUps[(int)PowerIndexes.DMG].setSprite((int)SuperIndexes.PIERCE);
+                break;
+            case (int)SuperIndexes.STAR:
+                powerWheel.powerUps[(int)PowerIndexes.SPREAD].setSprite((int)SuperIndexes.STAR);
+                break;
+            case (int)SuperIndexes.ORBITAL:
+                powerWheel.powerUps[(int)PowerIndexes.SPEED].setSprite((int)SuperIndexes.ORBITAL);
+                break;
+            case (int)SuperIndexes.BOUNCE:
             case (int)SuperIndexes.PULSE:
-            break;
             case (int)SuperIndexes.REGEN:
+            case (int)SuperIndexes.SHIELD:
+            default:
                 item = Instantiate(buffPrefab, transform) as SuperItemUIController;
                 item.index = index;
                 item.updateTexture();
-            break;
-            case (int)SuperIndexes.SHIELD:
-            break;
-            case (int)SuperIndexes.STAR:
-                powerWheel.powerUps[(int)PowerIndexes.SPREAD].setSprite((int)SuperIndexes.STAR);
-            break;
-            default:
-            break;
+                break;
         }
     }
 }

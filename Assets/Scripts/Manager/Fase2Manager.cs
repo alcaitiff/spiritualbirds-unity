@@ -16,7 +16,7 @@ public class Fase2Manager : Fase1Manager
         boss=false;
         gm.UI=UI;
         UI.showSuperSelection();
-        //gm.stats[(int)EnemyIndexes.PIDGEON].born=60;
+        //gm.stats[(int)EnemyIndexes.PIDGEON].born=70;
     }
 
     override protected void Update(){
