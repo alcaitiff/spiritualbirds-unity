@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     public ProgressBarController hp;
     public PauseButton pauseButton;
     public GameManager gm;
+    public GameObject congratulations;
     public GameObject fireButton;
     public SuperItemUIController buffPrefab;
     public SuperSelectionController superSelection;
@@ -109,6 +110,11 @@ public class UIController : MonoBehaviour
     public void showSuperSelection(){
         superSelection.gameObject.SetActive(true);
         superSelection.getSuperIndexes(gm.getSuper());
+        setBasicUIVisibility(false);
+    }    
+    
+    public void showCongratulations(){
+        congratulations.SetActive(true);
         setBasicUIVisibility(false);
     }
 

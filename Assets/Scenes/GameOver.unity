@@ -1346,9 +1346,9 @@ MonoBehaviour:
   orangeBirdScore: {fileID: 828782334}
   crowScore: {fileID: 563777655}
   score: {fileID: 940481061}
-  devileon: {fileID: 77357233}
-  devilJay: {fileID: 2036552229}
-  devilBaron: {fileID: 1270998708}
+  devileon: {fileID: 1737351287}
+  devilJay: {fileID: 1037289415}
+  devilBaron: {fileID: 983281850}
   gm: {fileID: 0}
 --- !u!1 &307478198
 GameObject:

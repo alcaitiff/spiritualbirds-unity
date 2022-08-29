@@ -1367,6 +1367,10 @@ PrefabInstance:
       value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 2423210299110814236, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 623976054}
+    - target: {fileID: 2423210299110814236, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
       propertyPath: bosses.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1402,6 +1406,14 @@ PrefabInstance:
       propertyPath: backgrounds.Array.data[4]
       value: 
       objectReference: {fileID: 608171312}
+    - target: {fileID: 2872098512483465698, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872098512483465698, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d7322ce1525359eaa867dc770c674e9c, type: 3}

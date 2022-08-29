@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-public class Fase3Manager : Fase1Manager
-{
+public class Fase3Manager : Fase1Manager{
     private bool superSelected = false;
-    override protected void Start()
-    {
+    override protected void Start(){
         gm = GameManager.instance;
-        bossStats = gm.stats[(int)EnemyIndexes.DEVILJAY];
-        bossIndex = 1;
-        nextFase=(int)SceneIndexes.FASE_3;
+        bossStats = gm.stats[(int)EnemyIndexes.DEVILBARON];
+        bossIndex = 2;
+        nextFase=(int)SceneIndexes.GAMEOVER;
         done=false;
         boss=false;
         gm.UI=UI;
         UI.showSuperSelection();
         
         //only for tests
-        //gm.stats[(int)EnemyIndexes.PIDGEON].born=120;
+        //gm.stats[(int)EnemyIndexes.PIDGEON].born=220;
+        //gm.getSuper().Add(5);
         //bossStats.killed=1;
         //boss=true;
     }
@@ -37,7 +36,8 @@ public class Fase3Manager : Fase1Manager
                 enableBoss();
             }else if(bossStats.killed>0 && !done){
                 done=true;
-                StartCoroutine(goToFase(nextFase));
+                UI.showCongratulations();
+                StartCoroutine(goToFase(nextFase,8f));
             }
         }
     }
@@ -51,11 +51,11 @@ public class Fase3Manager : Fase1Manager
             pidgeon.setInterval(2f);
         }else if(!woodpecker.active && pidgeonStats.born>132){
             pidgeon.setInterval(4f);
-            woodpecker.setInterval(6f);
+            woodpecker.setInterval(4f);
             woodpecker.enable();
         }else if(!hawk.active && pidgeonStats.born>138){
-            pidgeon.setInterval(5f);
-            woodpecker.setInterval(7f);
+            pidgeon.setInterval(4f);
+            woodpecker.setInterval(4f);
             hawk.setInterval(6f);
             hawk.enable();
         }else if(!blueJay.active && pidgeonStats.born>144){
@@ -74,7 +74,7 @@ public class Fase3Manager : Fase1Manager
         }else if(!crow.active && pidgeonStats.born>200){
             pidgeon.setInterval(5f);
             woodpecker.setInterval(9f);
-            hawk.setInterval(8f);
+            hawk.setInterval(2f);
             orangeBird.setInterval(10f);
             blueJay.setInterval(15f);
             crow.setInterval(4f);
