@@ -35,9 +35,8 @@ Done 🟢
 | Bounce - after hit bullet change trajectory | 🟢 | Show Super on UI | 🟢 |
 | Shield - recharge auto | 🟢 | Orbital - always around | 🟢 |
 | Super habilities | 🟢 | Fase 2 logic | 🟢 |
-| Fase 2 Boss | 🟢  | Fase 2 logic | 🟢 |
-| Fase 3 Boss | 🟡  | Fase 3 logic | 🟡 |
-| Bosses on gameover screen | 🔴 | Super on gameover screen | 🔴 |
+| Fase 2 Boss | 🟢  | Fase 3 logic | 🟡 |
+| Fase 3 Boss | 🟡  | Bosses on gameover screen | 🔴 |  
 | Save settings | 🔴 | Statistics on pause | 🔴 |
 | Enemies Change sprite on hit  | 🔴 | Grayscale on pause | 🔴 |
 
