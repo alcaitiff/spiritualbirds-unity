@@ -1,10 +1,12 @@
 # ChangeLog
 
-## 0.0.13
+## 0.1.0
 
 | Type | Description |
 | -- | -- |
 | fix | SCORE among fases |
+| fix | PowerWheel alteration |
+
 ## 0.0.12
 
 | Type | Description |
