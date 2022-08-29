@@ -36,10 +36,10 @@ Done 🟢
 | Shield - recharge auto | 🟢 | Orbital - always around | 🟢 |
 | Super habilities | 🟢 | Fase 2 logic | 🟢 |
 | Multiple Super selection | 🟢  | Multiple Super UI | 🟢 |
-| Fase 2 Boss | 🟢  | Fase 3 logic | 🟡 |
-| Save settings | 🟢 | Statistics on pause | 🔴 |
-| Fase 3 Boss | 🟡 | Bosses on gameover screen | 🟢 |  
-| Enemies Change sprite on hit  | 🟢 | Credits | 🔴 |
+| Fase 2 Boss | 🟢  | Enemies Change sprite on hit  | 🟢 |
+| Save settings | 🟢 | Bosses on gameover screen | 🟢 |
+| Fase 3 Boss | 🟡 | Fase 3 logic | 🟡 |
+| Credits | 🔴 | Joystick UI | 🔴 |
 
 ## ChangeLog
 
