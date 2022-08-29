@@ -1,5 +1,10 @@
 # ChangeLog
 
+## 0.0.13
+
+| Type | Description |
+| -- | -- |
+| fix | SCORE among fases |
 ## 0.0.12
 
 | Type | Description |
@@ -30,6 +35,10 @@
 | feat | Show Super on UI |
 | feat | Shield - recharge auto |
 | feat | Orbital - always around |
+| feat | Shield sounds |
+| feat | Multiple Super selection |
+| feat | Multiple Super UI |
+| feat | Fase 2 Boss |
 
 ## 0.0.11
 

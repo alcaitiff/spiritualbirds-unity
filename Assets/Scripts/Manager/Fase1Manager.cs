@@ -32,6 +32,10 @@ public class Fase1Manager : MonoBehaviour
         nextFase=(int)SceneIndexes.FASE_2;
         gm.UI=UI;
         gm.startPlayer(new Vector3(-5,3,0));
+        //only for tests
+        // gm.stats[(int)EnemyIndexes.PIDGEON].born=120;
+        // bossStats.killed=1;
+        // boss=true;
     }
 
     private IEnumerator initialTutorial(){
@@ -116,7 +120,7 @@ public class Fase1Manager : MonoBehaviour
         crow.disable();
     }
     
-    protected IEnumerator goToFase(int fase, float time = 3f){
+    protected IEnumerator goToFase(int fase, float time = 4f){
         yield return new WaitForSeconds(time);
         SceneManager.LoadScene(fase, LoadSceneMode.Single);
     }

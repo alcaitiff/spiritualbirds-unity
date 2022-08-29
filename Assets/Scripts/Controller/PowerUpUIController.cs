@@ -8,7 +8,7 @@ public class PowerUpUIController : MonoBehaviour
   public bool active = false;
   private SpriteRenderer spriteRenderer;
   public List<Sprite> superSprites = new List<Sprite>();
-  void Start()
+  void Awake()
   {
     spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
   }

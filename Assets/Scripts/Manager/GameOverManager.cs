@@ -17,7 +17,7 @@ public class GameOverManager : MonoBehaviour
   
     void Start(){
         gm = GameManager.instance;
-        score.text=gm.player.score.ToString("D5");
+        score.text=gm.score.ToString("D5");
         pidgeonScore.text=getScore((int)EnemyIndexes.PIDGEON);
         woodpeeckerScore.text=getScore((int)EnemyIndexes.WOODPECKER);
         hawkScore.text=getScore((int)EnemyIndexes.HAWK);

@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
   private List<int> super = new List<int>();
   public PlayerController player;
   private int numEnemies;
+  public int score;
   private void Awake()
   {
     if (GameManager.instance != null)
@@ -49,6 +50,8 @@ public class GameManager : MonoBehaviour
     for(int i = 0;i<numEnemies;i++){
       stats[i].clear();
     }
+    score=0;
+    super = new List<int>();
 
     SceneManager.LoadScene((int)SceneIndexes.FASE_1, LoadSceneMode.Single);
   }
@@ -60,6 +63,9 @@ public class GameManager : MonoBehaviour
     foreach(int index in super){
       player.addSuper(index);
     }
+    player.score=score;
+    setScore(score);
+
     return player;
   }
 
@@ -110,6 +116,7 @@ public class GameManager : MonoBehaviour
   }
 
   public void setScore(int value){
+    score=value;
     TextMeshProUGUI tm = UI.score.GetComponent<TextMeshProUGUI>();
     tm.text = value.ToString("D4");
   }
@@ -132,7 +139,7 @@ public class GameManager : MonoBehaviour
 
   public void selectSuper(int index){
     super.Add(index);
-    UI.hideSuperSelection(index);
+    UI.hideSuperSelection();
   }
 
   public List<int> getSuper(){

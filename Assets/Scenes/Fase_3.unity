@@ -556,7 +556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: 84245b58864d98c7eb6cf295d62cb82c, type: 3}
   active: 0
-  attack: 0
+  attack: 1
   minRate: 1
   maxRate: 10
   interval: 2
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: 69cbfcab635621b4db4a39eebdde8f6d, type: 3}
   active: 0
-  attack: 0
+  attack: 1
   minRate: 1
   maxRate: 10
   interval: 1
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: c517016bbd3f33863a7f8b054b6cd087, type: 3}
   active: 0
-  attack: 0
+  attack: 1
   minRate: 1
   maxRate: 10
   interval: 2
@@ -990,7 +990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: 52c3bd5c789e07fce8301cda288eee65, type: 3}
   active: 0
-  attack: 0
+  attack: 1
   minRate: 1
   maxRate: 10
   interval: 1
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: f593482f5021875c6b2b33ca33d56898, type: 3}
   active: 0
-  attack: 0
+  attack: 1
   minRate: 1
   maxRate: 10
   interval: 2
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3781145664442341507, guid: 4cb1dadce01a80c07b3ba8b1ca183f13, type: 3}
   active: 0
-  attack: 0
+  attack: 1
   minRate: 1
   maxRate: 10
   interval: 1

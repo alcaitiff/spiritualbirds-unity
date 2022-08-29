@@ -24,7 +24,7 @@ public class Fase3Manager : Fase1Manager
     }
 
     override protected void Update(){
-        if(!superSelected && gm.getSuper().Count>0){
+        if(!superSelected && gm.getSuper().Count>1){
             superSelected=true;
             gm.startPlayer(new Vector3(-5,3,0));
             StartCoroutine(UI.setScroller(true,0f));

@@ -8,12 +8,9 @@ public class SuperSelectionController : MonoBehaviour{
     public List<GameObject> items = new List<GameObject>();
     private List<GameObject> active = new List<GameObject>();
 
-    public void getSuperIndexes(){
-        List<int> indexes = getRandom(((int[])Enum.GetValues(typeof(SuperIndexes))).ToList(),3);
-        // List<int> indexes = new List<int>();
-        // indexes.Add(5);
-        // indexes.Add(6);
-        // indexes.Add(7);
+    public void getSuperIndexes(List<int> current){
+        List<int> available = ((int[])Enum.GetValues(typeof(SuperIndexes))).Except(current).ToList();
+        List<int> indexes = getRandom(available,3);
         for(int i=0;i<3;i++){
             GameObject e = Instantiate(items[indexes[i]], transform);
             e.transform.position+=new Vector3((i-1)*2.5f,0,0);
@@ -27,8 +24,11 @@ public class SuperSelectionController : MonoBehaviour{
     }
 
     public void clear(){
-        foreach(GameObject item in active){
-            Destroy(item);
+        int s = active.Count;
+        for(int i=s;i>0;i--){
+            GameObject o = active[i-1];
+            active.Remove(o);
+            Destroy(o);
         }
     }
 }

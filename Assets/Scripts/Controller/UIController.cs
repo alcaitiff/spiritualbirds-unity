@@ -108,14 +108,14 @@ public class UIController : MonoBehaviour
 
     public void showSuperSelection(){
         superSelection.gameObject.SetActive(true);
-        superSelection.getSuperIndexes();
+        superSelection.getSuperIndexes(gm.getSuper());
         setBasicUIVisibility(false);
     }
 
-    public void hideSuperSelection(int index){
+    public void hideSuperSelection(){
         AudioSource.PlayClipAtPoint(audioSelectSuper, new Vector3(0f,0f,-10f));
-        updateUIForSuper(index);
         setBasicUIVisibility(true);
+        updateUIForSuper();
         superSelection.clear();
         superSelection.gameObject.SetActive(false);
     }
@@ -126,30 +126,35 @@ public class UIController : MonoBehaviour
         bullets.SetActive(value);
     }
 
-    public void updateUIForSuper(int index){
-        SuperItemUIController item;
-        switch (index){
-            case (int)SuperIndexes.AUTO:
-                powerWheel.powerUps[(int)PowerIndexes.AMMO].setSprite((int)SuperIndexes.AUTO);
-                break;
-            case (int)SuperIndexes.PIERCE:
-                powerWheel.powerUps[(int)PowerIndexes.DMG].setSprite((int)SuperIndexes.PIERCE);
-                break;
-            case (int)SuperIndexes.STAR:
-                powerWheel.powerUps[(int)PowerIndexes.SPREAD].setSprite((int)SuperIndexes.STAR);
-                break;
-            case (int)SuperIndexes.ORBITAL:
-                powerWheel.powerUps[(int)PowerIndexes.SPEED].setSprite((int)SuperIndexes.ORBITAL);
-                break;
-            case (int)SuperIndexes.BOUNCE:
-            case (int)SuperIndexes.PULSE:
-            case (int)SuperIndexes.REGEN:
-            case (int)SuperIndexes.SHIELD:
-            default:
-                item = Instantiate(buffPrefab, transform) as SuperItemUIController;
-                item.index = index;
-                item.updateTexture();
-                break;
+    public void updateUIForSuper(){
+        List<int> s = gm.getSuper();
+        for(int i=0;i<s.Count;i++){
+            SuperItemUIController item;
+            int index=s[i];
+            switch (index){
+                case (int)SuperIndexes.AUTO:
+                    powerWheel.powerUps[(int)PowerIndexes.AMMO].setSprite((int)SuperIndexes.AUTO);
+                    break;
+                case (int)SuperIndexes.PIERCE:
+                    powerWheel.powerUps[(int)PowerIndexes.DMG].setSprite((int)SuperIndexes.PIERCE);
+                    break;
+                case (int)SuperIndexes.STAR:
+                    powerWheel.powerUps[(int)PowerIndexes.SPREAD].setSprite((int)SuperIndexes.STAR);
+                    break;
+                case (int)SuperIndexes.ORBITAL:
+                    powerWheel.powerUps[(int)PowerIndexes.SPEED].setSprite((int)SuperIndexes.ORBITAL);
+                    break;
+                case (int)SuperIndexes.BOUNCE:
+                case (int)SuperIndexes.PULSE:
+                case (int)SuperIndexes.REGEN:
+                case (int)SuperIndexes.SHIELD:
+                default:
+                    item = Instantiate(buffPrefab, transform) as SuperItemUIController;
+                    item.transform.position+=new Vector3(i*-1f,0,0);
+                    item.index = index;
+                    item.updateTexture();
+                    break;
+            }
         }
     }
 }

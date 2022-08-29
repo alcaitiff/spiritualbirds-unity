@@ -18,9 +18,9 @@ public class Fase2Manager : Fase1Manager
         UI.showSuperSelection();
         
         //only for tests
-        gm.stats[(int)EnemyIndexes.PIDGEON].born=120;
-        bossStats.killed=1;
-        boss=true;
+        // gm.stats[(int)EnemyIndexes.PIDGEON].born=120;
+        // bossStats.killed=1;
+        // boss=true;
     }
 
     override protected void Update(){
