@@ -13,6 +13,9 @@ public class GameOverManager : MonoBehaviour
     public TextMeshProUGUI orangeBirdScore;
     public TextMeshProUGUI crowScore;
     public TextMeshProUGUI score;
+    public TextMeshProUGUI devileon;
+    public TextMeshProUGUI devilJay;
+    public TextMeshProUGUI devilBaron;
     public GameManager gm;
   
     void Start(){
@@ -24,6 +27,9 @@ public class GameOverManager : MonoBehaviour
         blueJayScore.text=getScore((int)EnemyIndexes.BLUEJAY);
         orangeBirdScore.text=getScore((int)EnemyIndexes.ORANGE_BIRD);
         crowScore.text=getScore((int)EnemyIndexes.CROW);
+        devileon.text=getScore((int)EnemyIndexes.DEVILEON);
+        devilJay.text=getScore((int)EnemyIndexes.DEVILJAY);
+        devilBaron.text=getScore((int)EnemyIndexes.DEVILBARON);
         disableObjects();
         StartCoroutine(enableObjects());
     }
@@ -36,7 +42,7 @@ public class GameOverManager : MonoBehaviour
 
     private IEnumerator enableObjects(){
         for(int i =0;i<objects.Count;i++){
-            if(i>5 || gm.stats[i].born>0){
+            if(i>8 || gm.stats[i].born>0){
                 yield return new WaitForSeconds(0.5f);
                 objects[i].SetActive(true);
             }
@@ -44,7 +50,11 @@ public class GameOverManager : MonoBehaviour
     }
 
     private string getScore(int i){
-        return gm.stats[i].killed.ToString("D3")+"/"+gm.stats[i].born.ToString("D3");
+        if(i<6){
+            return gm.stats[i].killed.ToString("D3")+"/"+gm.stats[i].born.ToString("D3");
+        }else{
+            return gm.stats[i].killed.ToString()+"/"+gm.stats[i].born.ToString();
+        }
     }
     
 }

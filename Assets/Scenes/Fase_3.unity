@@ -510,6 +510,7 @@ MonoBehaviour:
   prefabPowerUp: {fileID: 4822140243565055692, guid: d75c660c8e7436798a02a909e70fa555, type: 3}
   prefabPlayer: {fileID: 2705026822796951424, guid: d558033cdd3f73e59b0cdef248417e2b, type: 3}
   player: {fileID: 0}
+  score: 0
 --- !u!4 &623976055
 Transform:
   m_ObjectHideFlags: 0

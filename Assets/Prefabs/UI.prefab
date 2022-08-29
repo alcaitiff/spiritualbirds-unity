@@ -3115,7 +3115,7 @@ GameObject:
   - component: {fileID: 4601170502371798191}
   - component: {fileID: 2382012142099388984}
   m_Layer: 6
-  m_Name: Boss3
+  m_Name: DevilBaron
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3182,7 +3182,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -929049982, guid: f2328af41fc27b1989423d3a1298f5cd, type: 3}
+  m_Sprite: {fileID: -333496344, guid: 955ebac2665f4de3c86a183314469832, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3203,7 +3203,7 @@ Animator:
   m_GameObject: {fileID: 5919393390521659641}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 11ab6a1f4cac9883cae49e127770411b, type: 2}
+  m_Controller: {fileID: 9100000, guid: fb3e42d9b06b349518a8d2741597d6fd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3230,7 +3230,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.2755556, y: 2.28}
+    oldSize: {x: 1.5, y: 1.5}
     newSize: {x: 2.2755556, y: 2.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

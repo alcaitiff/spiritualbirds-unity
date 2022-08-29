@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss3Controller : EnemyController{
+public class DevilBaronController : EnemyController{
 
     override protected void Awake(){
-        index = (int)EnemyIndexes.BOSS3;
+        index = (int)EnemyIndexes.DEVILBARON;
         rand = 0f;
         velocity = 0f;
-        currentHealth = 1;//000;
+        currentHealth = 2500;
         points = 1000;
         dmg = 2;
         healDropChance = 0;

@@ -12,5 +12,5 @@ public enum EnemyIndexes
   CROW = 5,
   DEVILEON = 6,
   DEVILJAY = 7,
-  BOSS3 = 8
+  DEVILBARON = 8
 }

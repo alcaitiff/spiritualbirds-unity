@@ -32,11 +32,26 @@ public class GameManager : MonoBehaviour
       return;
     }
     instance = this;
+    loadPreferences();
     DontDestroyOnLoad(gameObject);
     numEnemies = Enum.GetNames(typeof(EnemyIndexes)).Length;
     for(int i = 0;i<numEnemies;i++){
       stats.Add(new EnemyStats(i));
     }
+  }
+
+  public void savePreferences(){
+    PlayerPrefs.SetInt("virtualButon", virtualButon?1:0);
+    PlayerPrefs.SetInt("sound", sound?1:0);
+    PlayerPrefs.SetInt("tutorial", tutorial?1:0);
+    PlayerPrefs.Save();
+  }
+ 
+  public void loadPreferences(){
+    virtualButon = PlayerPrefs.GetInt("virtualButon", 1)==0?false:true;
+    sound = PlayerPrefs.GetInt("sound", 1)==0?false:true;
+    tutorial = PlayerPrefs.GetInt("tutorial", 1)==0?false:true;
+    AudioListener.volume = sound?1:0;
   }
 
   public void MainMenu(){
@@ -78,12 +93,14 @@ public class GameManager : MonoBehaviour
     if(UI){
       UI.setVirtualButton(virtualButon);
     }
+    savePreferences();
     return virtualButon;
   }
 
   public bool ToogleSound(){
     sound=!sound;
     AudioListener.volume = sound?1:0;
+    savePreferences();
     return sound;
   }  
   
@@ -92,6 +109,7 @@ public class GameManager : MonoBehaviour
      if(UI){
       UI.showTutorial(tutorial);
     }
+    savePreferences();
     return tutorial;
   }
 

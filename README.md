@@ -37,9 +37,9 @@ Done 🟢
 | Super habilities | 🟢 | Fase 2 logic | 🟢 |
 | Multiple Super selection | 🟢  | Multiple Super UI | 🟢 |
 | Fase 2 Boss | 🟢  | Fase 3 logic | 🟡 |
-| Fase 3 Boss | 🔴  | Bosses on gameover screen | 🔴 |  
-| Save settings | 🔴 | Statistics on pause | 🔴 |
-| Enemies Change sprite on hit  | 🟢 | Grayscale on pause | 🔴 |
+| Save settings | 🟢 | Statistics on pause | 🔴 |
+| Fase 3 Boss | 🟡 | Bosses on gameover screen | 🟢 |  
+| Enemies Change sprite on hit  | 🟢 | Credits | 🔴 |
 
 ## ChangeLog
 
