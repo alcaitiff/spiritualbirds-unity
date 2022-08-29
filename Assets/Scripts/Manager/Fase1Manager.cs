@@ -33,9 +33,9 @@ public class Fase1Manager : MonoBehaviour
         gm.UI=UI;
         gm.startPlayer(new Vector3(-5,3,0));
         //only for tests
-        // gm.stats[(int)EnemyIndexes.PIDGEON].born=120;
-        // bossStats.killed=1;
-        // boss=true;
+        //gm.stats[(int)EnemyIndexes.PIDGEON].born=61;
+        //bossStats.killed=1;
+        //boss=true;
     }
 
     private IEnumerator initialTutorial(){

@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
     public AudioClip bossMusic;
     public List<BackgroundTimedScroller> backgrounds = new List<BackgroundTimedScroller>();
     private Coroutine routine;
-    private float volume = 0.1f;
+    private float volume = 0.6f;
     private bool tutorialActive = true;
     [SerializeField]
     public AudioClip audioSelectSuper;
@@ -86,7 +86,7 @@ public class UIController : MonoBehaviour
         StartCoroutine(GetComponent<AudioSource>().CrossFade(
                         newSound: bossMusic,
                         finalVolume: volume,
-                        fadeTime: 3f));
+                        fadeTime: 1f));
         StartCoroutine(activateBossBattle(index));
     }
     private IEnumerator activateBossBattle(int index){

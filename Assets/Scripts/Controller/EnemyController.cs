@@ -15,6 +15,7 @@ public class EnemyController :  MonoBehaviour,Hitable
   protected GameManager gm;
   protected int index;
   protected int spread = 1;
+  protected bool blinking = false;
   [SerializeField]
   protected GBController bulletPrefab;
   [SerializeField]
@@ -50,6 +51,19 @@ public class EnemyController :  MonoBehaviour,Hitable
     Vector3 mov = new Vector3(-velocity, Mathf.Sin(Time.fixedTime+rand)*0.7f, 0);
     Vector3 des = transform.position + mov * Time.deltaTime;
     transform.position = des;
+  }
+  virtual protected void bounce(){
+    transform.position+= new Vector3(0.2f, 0.2f, 0);
+  }
+  virtual protected IEnumerator blinkRed(){
+    if(!blinking){
+      blinking=true;
+      Color original = gameObject.GetComponent<SpriteRenderer>().color;
+      gameObject.GetComponent<SpriteRenderer>().color=new Color(1,0.5f,0.5f,1);
+      yield return new WaitForSeconds(0.2f);
+      gameObject.GetComponent<SpriteRenderer>().color=original;
+      blinking=false;
+    }
   }
   // Update is called once per frame
   protected void Update(){
@@ -95,6 +109,7 @@ public class EnemyController :  MonoBehaviour,Hitable
     }
   }
   public int hit(int dmg){
+    StartCoroutine(blinkRed());
     AudioSource.PlayClipAtPoint(audioHit, new Vector3(0f,0f,-10f));
     changeLife(-dmg);
     return dead?points:0;
@@ -109,6 +124,7 @@ public class EnemyController :  MonoBehaviour,Hitable
     if(other.collider.tag=="Player"){
       AudioSource.PlayClipAtPoint(audioHit, new Vector3(0f,0f,-10f));
       other.gameObject.GetComponent<PlayerController>().hit(dmg);
+      bounce();
     };
   }
   private void death(){
