@@ -39,7 +39,7 @@ Done 🟢
 | Fase 2 Boss | 🟢  | Enemies Change sprite on hit  | 🟢 |
 | Save settings | 🟢 | Bosses on gameover screen | 🟢 |
 | Fase 3 Boss | 🟢 | Fase 3 logic | 🟢 |
-| Credits | 🔴 | Joystick UI | 🔴 |
+| Credits | 🟢 | Joystick UI | 🔴 |
 
 ## ChangeLog
 

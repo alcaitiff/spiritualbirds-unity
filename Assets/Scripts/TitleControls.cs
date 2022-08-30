@@ -8,6 +8,7 @@ public class TitleControls : MonoBehaviour
 
   public GameManager gm;
   public GameObject menu;
+  public GameObject creditsText;
   public int wait = 0;
   PlayerControls controls;
 
@@ -50,4 +51,13 @@ public class TitleControls : MonoBehaviour
     menu.SetActive(false);
   }
 
+  public void ShowCredits(){
+    if(creditsText){
+      creditsText.SetActive(true);
+    }
+  }  
+  
+  public void HideCredits(){
+    creditsText.SetActive(false);
+  }
 }
