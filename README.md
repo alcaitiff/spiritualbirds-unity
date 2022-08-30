@@ -38,7 +38,7 @@ Done 🟢
 | Multiple Super selection | 🟢  | Multiple Super UI | 🟢 |
 | Fase 2 Boss | 🟢  | Enemies Change sprite on hit  | 🟢 |
 | Save settings | 🟢 | Bosses on gameover screen | 🟢 |
-| Fase 3 Boss | 🟡 | Fase 3 logic | 🟡 |
+| Fase 3 Boss | 🟢 | Fase 3 logic | 🟢 |
 | Credits | 🔴 | Joystick UI | 🔴 |
 
 ## ChangeLog
