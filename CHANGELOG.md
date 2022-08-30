@@ -1,5 +1,11 @@
 # ChangeLog
 
+## 1.0.0
+
+| Type | Description |
+| -- | -- |
+| feat | CREDITS |
+
 ## 0.1.0
 
 | Type | Description |
