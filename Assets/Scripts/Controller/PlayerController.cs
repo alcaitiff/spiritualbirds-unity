@@ -56,10 +56,10 @@ public class PlayerController : MonoBehaviour,Hitable
 
   //Update is called once per frame
   void Update(){
-    if (Input.GetKeyDown(KeyCode.E))
-    {
-      AddPower(0);
-    }
+    // if (Input.GetKeyDown(KeyCode.E))
+    // {
+    //   AddPower(0);
+    // }
     if(pulse){
       pulseShoot(Time.deltaTime);
     }
