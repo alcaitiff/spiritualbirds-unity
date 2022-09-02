@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 7287728782278093367, guid: 703a3dae779295d16b99b22a9ce58c74, type: 3}
   - {fileID: 7287728782278093367, guid: 9a3c53b4deb282313ac3164a81e7713a, type: 3}
   - {fileID: 7287728782278093367, guid: 69e87dcecf6ca01598c01878cb19479f, type: 3}
+  title: {fileID: 1979208983054387033}
 --- !u!1 &1979208983054387031
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +72,7 @@ GameObject:
   - component: {fileID: 1979208983054387032}
   - component: {fileID: 1979208983054387033}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

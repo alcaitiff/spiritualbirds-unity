@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Fase2Manager : Fase1Manager
 {
     private bool superSelected = false;
-    override protected void Start()
+    override protected void Awake()
     {
         gm = GameManager.instance;
         bossStats = gm.stats[(int)EnemyIndexes.DEVILJAY];
@@ -15,14 +15,14 @@ public class Fase2Manager : Fase1Manager
         done=false;
         boss=false;
         gm.UI=UI;
-        UI.showSuperSelection();
-        
-        //only for tests
-        // gm.stats[(int)EnemyIndexes.PIDGEON].born=120;
-        // bossStats.killed=1;
-        // boss=true;
     }
-
+    override protected void Start(){
+        UI.showSuperSelection();
+        //only for tests
+        //gm.stats[(int)EnemyIndexes.PIDGEON].born=120;
+        //bossStats.killed=1;
+        //boss=true;
+    }
     override protected void Update(){
         if(!superSelected && gm.getSuper().Count>0){
             superSelected=true;

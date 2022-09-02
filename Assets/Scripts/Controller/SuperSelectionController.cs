@@ -9,7 +9,7 @@ public class SuperSelectionController : MonoBehaviour{
     private List<GameObject> active = new List<GameObject>();
 
     public void getSuperIndexes(List<int> current){
-        List<int> available = ((int[])Enum.GetValues(typeof(SuperIndexes))).Except(current).ToList();
+        List<int> available = Enum.GetValues(typeof(SuperIndexes)).Cast<SuperIndexes>().Cast<int>().Except(current).ToList();
         List<int> indexes = getRandom(available,3);
         for(int i=0;i<3;i++){
             GameObject e = Instantiate(items[indexes[i]], transform);

@@ -24,13 +24,16 @@ public class Fase1Manager : MonoBehaviour
     protected int nextFase;
     protected EnemyStats bossStats;
     protected int bossIndex;
-    virtual protected void Start()
+    virtual protected void Awake()
     {
         gm = GameManager.instance;
         bossStats = gm.stats[(int)EnemyIndexes.DEVILEON];
         bossIndex = 0;
         nextFase=(int)SceneIndexes.FASE_2;
         gm.UI=UI;
+    }    
+    virtual protected void Start()
+    {
         gm.startPlayer(new Vector3(-5,3,0));
         //only for tests
         //gm.stats[(int)EnemyIndexes.PIDGEON].born=61;

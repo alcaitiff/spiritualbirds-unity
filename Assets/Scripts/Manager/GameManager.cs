@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
   [SerializeField]
   private PlayerController prefabPlayer;
   public List<EnemyStats> stats = new List<EnemyStats>();
-  private List<int> super = new List<int>();
+  private List<int> super;
   public PlayerController player;
   private int numEnemies;
   public int score;
